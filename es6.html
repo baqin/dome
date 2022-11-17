@@ -5,27 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #id{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="id"></div>
+    <script>
+        let ad=document.getElementById('id');
+        // 获取id名为id的div
+        console.log(ad);
+        ad.addEventListener('click',function(){
+            // addEventListener事件监听
+            setTimeout(() => {
+                this.style.background='pink'
+            },2000);
+        })
+
+        function date(){
+            console.log(arguments);
+        }
+        date('阿三的','阿大撒','黯淡啊')
+
+        // es6
+        function date(...args){
+            console.log(args);
+        }
+        date('adsf1','sad','asd')
+
+        // 展开运算符的使用场景
+        // 1、数组的合并,对象合并
+        const kuaizi=['sad','sadd'];
+        const fenghuang=['曾毅','领花'];
+        const allArray=[...kuaizi,...fenghuang]
+        const allArray1=kuaizi.concat(fenghuang)
+        // 循环push
+
+        // 2、数组的克隆
+        const sanzhihua=['e','g','m'];
+        const sangcao=[...sanzhihua]//['e','g','m']
+
+        // 3、将伪数组转成真正的数组
+        const divs=document.querySelectorAll('div');
+        console.log(divs);
+        const divArr=[...divs];
+        console.log(divArr);
+        
+        // 创建Symbol
+        let s=Symbol();
+        let s2=Symbol('清华大学');
+        let s3=Symbol('清华大学');
+        let s4=Symbol.for('清华大学');
+        let s5=Symbol.for('清华大学');
+        console.log(s,s2,s3,s4,s5);
+    </script>
 </body>
-<script>
-    // 声明变量
-    let a;
-    let b,c,d
-    let e=100
-    let f=521, g='我爱你',h=[]
-    不能重复声明
-    // let aa='峰峰'
-    // let aa='喋喋'
-     // 作用域
-    {
-        let gir ='5678'
-    }
-    let gir ='222222'
-    console.log(gir);
-    // 不存在变量提升
-    console.log(arr);
-    let arr='发动机为'
-</script>
 </html>

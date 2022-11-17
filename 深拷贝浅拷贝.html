@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         要实现一个深拷贝* 
+// 1.写一个函数笨
+// 2.判断当前传入值的数据类型，RegExp正则不需要拷贝不是对象不需要拷贝
+// 3，最终生成一个对象的构造器* 
+// 4。进行进行赋值* 
+// 5，返回当前的值
+//第一种方式
+// JSON.parse(JSON.stringify())//缺点不完整，遇到函数会报错
+// let obj2 = JSON.parse(JSON.stringify(obj1))
+// obj2.name = "111"
+// console.log(obj1,obj2);
+// function fn(){
+
+// }
+// let fn1 = JSON.parse(JSON.stringify(fn))
+
+// JSON.parse(JSON.stringify())//缺点不完整，遇到函数会报错
+// let obj2 = JSON.parse(JSON.stringify(obj1))
+// obj2.name = "111"
+// console.log(obj1,obj2);
+// function fn(){
+
+// }
+// let fn1 = JSON.parse(JSON.stringify(fn))
+
+// JSON.parse(JSON.stringify())//缺点不完整，遇到函数会报错
+// let obj2 = JSON.parse(JSON.stringify(obj1))
+// obj2.name = "111"
+// console.log(obj1,obj2);
+// function fn(){
+
+// }
+// let fn1 = JSON.parse(JSON.stringify(fn))
+
+
+
+
+    // 手写深拷贝（主要思想：循环递归）
+    // function deepClone(obj){
+    //     if(obj == null) return obj
+    //     if(obj instanceof Date) return new Date()
+    //     if(obj instanceof RegExp) return new RegExp()
+    //     if(typeof obj !== "object") return obj
+
+    //     let res = new obj.constructor()
+
+    //     for (key in obj){
+    //         res[key] = deepClone(obj[key])
+    //     }
+    //     console.log(res);
+    //     return res
+    // }
+    // let obj2 = deepClone(obj1)
+    // obj2.name = "111"
+    // obj2.sing.name = "222"
+    // console.log(obj1,obj2);
+
+    // function deepClone(obj){
+    //     if(obj == null) return obj
+    //     if(obj instanceof Date) return new Date()
+    //     if(obj instanceof RegExp) return new RegExp()
+    //     if(typeof obj !== "object") return obj
+
+    //     let res = new obj.constructor()
+
+    //     for (key in obj){
+    //         res[key] = deepClone(obj[key])
+    //     }
+    //     console.log(res);
+    //     return res
+    // }
+    // let obj2 = deepClone(obj1)
+    // obj2.name = "111"
+    // obj2.sing.name = "222"
+    // console.log(obj1,obj2);
+
+    function deepClone(obj){
+        if(obj == null) return obj
+        if(obj instanceof Date) return new Date()
+        if(obj instanceof RegExp) return new RegExp()
+        if(typeof obj !== "object") return obj
+
+        let res = new obj.constructor()
+
+        for (key in obj){
+            res[key] = deepClone(obj[key])
+        }
+        console.log(res);
+        return res
+    }
+    let obj2 = deepClone(obj1)
+    obj2.name = "111"
+    obj2.sing.name = "222"
+    console.log(obj1,obj2);
+
+    </script>
+
+</body>
+</html>

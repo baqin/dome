@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(111);
+        // rest参数
+        // 1、rest参数(形式为"…变量名"),用于获取函数的多余参数,这样就不需要使用arguments(参数)对象了.
+        // 2、rest参数搭配的变量是一个数组,该变量将多余的参数放入数组中.
+        function add(...a) {
+            let sum = 0;
+            for (var val of a) {
+                sum += val;
+            }
+            return sum
+        }
+        let sum = add(2, 5, 3);//10
+        console.log(sum);
+        // add函数是一个求和函数,利用rest参数,可以向该函数传入任意数目的参数.
+        // 3. rest参数代替arguments变量
+        function sortNumbers() {
+            return Array.prototype.slice.call(arguments).sort();
+        }
+        // rest参数的写法
+        const sortNumbers = (...numbers) => numbers.sort();
+        //4、 res参数中的变量代表一个数组,所以数组特有的方方都可以用于这个变量.下面是一个利用rest参数改写数组push方法的例子
+        function push(array, ...items) {
+            //forEach为每一个
+            items.forEach(function (item) {
+                array.push(item);
+                console.log(item);
+            });
+        }
+        var a = [];
+        push(a, 1, 2, 3);
+        // 5、rest参数之后不能再有其他参数(即只能是最后一个参数), 否则会报错.
+        // 6、函数的length属性, 不包括rest参数
+    </script>
+</body>
+
+
+</html>

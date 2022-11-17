@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 伪数组
+    // 1、伪数组是一个对象(Object)，而真实的数组是一个数组(Array)
+    // 2、拥有length属性，且必须是number类型,其它属性（索引）为字符串
+    // 3、不具有数组所具有的方法,forEach()等,不过有Object的方法
+    // 4、伪数组长度不可变,真数组长度可以变
+    // 5、可以通过for in遍历
+    // var fakeArray = {
+    //     length: 3,
+    //     "0": "first",
+    //     "1": "second",
+    //     "2": "third"
+    // }
+    // var arr = [1, 2, 3, 4]
+
+    // // 真数组的方法来自Array.prototype
+    // console.log(fakeArray instanceof Array) //false
+    // console.log(arr instanceof Array) // true
+
+    // Array.isArray(fakeArray) // false;
+    // Array.isArray(arr) // true;
+
+    // console.log(arr.__proto__ === Array.prototype) // true
+    // console.log(fakeArray.__proto__ === Array.prototype) // false
+    // console.log(fakeArray.__proto__ === Object.prototype) // true
+
+    // arr.forEach(x => console.log(x)) // 1 2 3 4
+    // // fakeArray.forEach(x => console.log(x)) // fakeArray.forEach is not a function
+
+    // Object.keys(fakeArray) //  ["0", "1", "2", "length"]
+    // 常见的伪数组
+    // 1、参数数组：arguments
+    // 2、DOM对象列表HTMLCollection()：比如通document.getElementsByTagName得到的列表
+    // 3、jquery对象：比如$(“div”)
+
+    // 伪数组转换为真数组
+    // 使用Array.prototype.slice.call();
+    var fakeArray = {
+        length: 3,
+        "0": "first",
+        "1": "second",
+        "2": "third"
+    }
+    // 将伪数组转换为真数组
+    // console.log(fakeArray);
+    var arr = Array.prototype.slice.call(fakeArray)
+
+    console.log(arr) // ["first", "second", "third"]
+    Array.isArray(arr) // true
+    console.log(arr instanceof Array) // true
+    arr.forEach(x => console.log(x)) // first second third*/
+
+</script>
+
+</html>
