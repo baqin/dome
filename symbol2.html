@@ -10,19 +10,13 @@
     
 </body>
 <script>
-    function a(){
-        console.log(this.name);
-    }
-    function b(){
-        console.log(this.name);
-    }
-    window.name='666'
-    const c={
-        name:'888'
-    }
-    a()
-    b()
-    a.call(c)
-    b.call(c)
+    let s =Symbol()
+    let s2 =Symbol(('1'))
+    let s3 =Symbol(('2'))
+    let s4 =Symbol.for('1')
+    let s5 =Symbol.for('2')
+    // let A=S+100
+    // let A=S>100
+    // let A=S+10
 </script>
 </html>

@@ -10,19 +10,20 @@
     
 </body>
 <script>
-    function a(){
-        console.log(this.name);
+    // es5获取实参
+    function data(){
+        console.log(arguments);
     }
-    function b(){
-        console.log(this.name);
+    data('1','2','3')
+    // rest参数
+    function data(...aras){
+        console.log(aras);
     }
-    window.name='666'
-    const c={
-        name:'888'
+    data('1','2','3')
+    // rest参数放放最后
+    function fn(a,b,...aras){
+        console.log(aras);
     }
-    a()
-    b()
-    a.call(c)
-    b.call(c)
+    fn(1,2,3,4,5)
 </script>
 </html>

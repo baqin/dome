@@ -10,19 +10,17 @@
     
 </body>
 <script>
-    function a(){
-        console.log(this.name);
+    const f4 =['肖战','王一博','张杰']
+    let[a,b,c]=f4
+    let f =f4[0]
+    console.log(c);
+    
+    const zhao={
+        name:'黎明',
+        age:18,
+        job:function(){
+            console.log('666');
+        }
     }
-    function b(){
-        console.log(this.name);
-    }
-    window.name='666'
-    const c={
-        name:'888'
-    }
-    a()
-    b()
-    a.call(c)
-    b.call(c)
 </script>
 </html>

@@ -9,20 +9,4 @@
 <body>
     
 </body>
-<script>
-    function a(){
-        console.log(this.name);
-    }
-    function b(){
-        console.log(this.name);
-    }
-    window.name='666'
-    const c={
-        name:'888'
-    }
-    a()
-    b()
-    a.call(c)
-    b.call(c)
-</script>
 </html>

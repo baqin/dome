@@ -10,19 +10,16 @@
     
 </body>
 <script>
-    function a(){
-        console.log(this.name);
-    }
-    function b(){
-        console.log(this.name);
-    }
-    window.name='666'
-    const c={
-        name:'888'
-    }
-    a()
-    b()
-    a.call(c)
-    b.call(c)
+    let a=`<ul>`+
+    `<li>老李</li>`+
+    `<li>老六</li>`+
+    `</ul>`
+    let b=`
+    <ul>
+    <li>老5</li>
+    <li>老6</li>
+    </ul>`
+    document.write(a)
+    document.write(b)
 </script>
 </html>

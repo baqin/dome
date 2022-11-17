@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* .box {
+        width: 100px;
+        height: 50px;
+        float: left;
+        margin-right: 10px;
+        border: 1px solid #aaa;
+    } */
+
+    .aa {
+       width: 100px; 
+       height: 50px;
+       border: 1px solid #ccc;
+       float: left;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <h2>点击变色</h2>
+        <hr />
+        <div class="aa"></div>
+        <div class="aa"></div>
+        <div class="aa"></div>
+    </div>
+</body>
+<script>
+    let divlist = document.getElementsByClassName('aa')
+    console.log(divlist);
+    for (let i = 0; i < divlist.length; i++) {
+        divlist[i].onclick = function () {
+            divlist[i].style.background = 'pink'
+        }
+    }
+</script>
+
+</html>
