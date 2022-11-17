@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.原型继承
+        // 构造函数
+        // function Super(){
+        //     this.a=1
+        // }
+        // Super.prototype.say = function(){
+        //     console.log('111');
+        // }
+        // function Sub(){}
+        // Sub.prototype = new Super()
+        // const test = new Sub()
+        // console.log(test.say());
+
+
+        // function Super(){
+        //     this.a=[1,2]
+        // }
+        // function Sub(){}
+        // Sub.prototype = new Sub()
+        // test1.a.push(3)
+        // console.log(test1.a);
+        // const test2 = new Sub()
+        // console.log(test2.a);
+
+
+        // 盗用构造函数
+        // let Super = function(){
+        //     this.a=1
+        // }
+        // let Sub = function(){
+        //     console.log(this,'this');
+        //     Super.call(this)
+        //     this.b=2
+        // }
+        // const test = new Sub()
+        // console.log(test,'test');
+
+
+        // 组合继承
+        function Super(){this.a[1,2]}
+        Super.prototype.say = function(){console.log('111');}
+        function Sub(){
+            Super.call(this)
+            this.b=2
+        }
+        Sub.prototype = new Super()
+        const test1 = new Sub()
+        console.log(test1.say());
+        test1.a.push(3)
+        const test2 = new Sub()
+        console.log(test2.a);
+    </script>
+</body>
+</html>

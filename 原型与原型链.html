@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//     原型链通俗易懂的理解就是可以把它想象成一个链条，互相连接构成一整串链子！
+// 而原型链中就是实例对象和原型对象之间的链接。每个函数都有一个prototype属性，
+// 这个prototype属性就是我们的原型对象，我们拿这个函数通过new构造函数创建出来的实例对象，
+// 这个实例对象自己会有一个指针(proto)指向他的构造函数的原型对象！这样构造函数和实例对象之间就通过( proto )连接在一起形成了一条链子。
+
+    console.log(Array.prototype); //可以查看数组原有的方法
+        Array.prototype.sum = function () {
+            let sum = 0;
+            for (let i = 0; i < this.length; i++) {
+                sum += this[i]; // this指向调用这个方法的数组
+            }
+            return sum;
+        }
+        console.log(Array.prototype); //再次查看数组的方法 可以找到有新扩展的 sum 方法
+        var arr = [1, 2, 3, 4]
+        console.log(arr.sum()); //输出 10
+</script>
+</html>
