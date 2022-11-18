@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const kuaizi = ['1', '2', '3']
+    const fenli = ['4', '5', '6']
+    const allarray = [...kuaizi, ...fenli]
+    // 用扩展运算符
+    const allarray1 = kuaizi.concat(fenli)
+    // 用concat合并
+    // for循环 push
+    console.log(allarray);
+    console.log(allarray1);
+
+
+
+
+    const sanzhi = ['a', 'b', 'c']
+    const sanyecao = [...sanzhi]
+    console.log(sanyecao);
+
+
+    let obj = {
+        name: '长'
+    }
+    let obj1 = {
+        age: 2
+    }
+    let newobj = { ...obj, ...obj1 }
+    console.log(newobj);
+
+
+
+    const divs = document.querySelectorAll('div')
+    const divArr = [...divs]
+    console.log(divArr);
+
+</script>

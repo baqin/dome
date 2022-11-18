@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 作用域为
+    // 全局作用域
+    // 函数作用域
+    // 块级作用域 es6新增的作用域
+
+
+    // var a = 100;   //a就是全局作用域
+    // function fun1() {
+    //     // console.log(c);
+    //     var b = 200;     //b是函数作用域
+    //     if (true) {
+    //         var c = 300;     //c是函数作用域             
+    //         console.log(c);
+    //     }
+    //     console.log(b);
+    // }
+    // fun1();
+    // console.log(a);
+
+
+    // console.log(str)    //var声明提升了,但是没有值  打印的是undefined
+    // var str = 'Jerry'
+    // console.log(str)
+
+
+
+
+    console.log('-----------------------------------');
+
+
+
+    // 创建函数有两种形式
+    // 一种是函数声明，
+    // 另外一种是函数字面量，只有函数声明才有变量提升
+    // console.log(a)  // f a() { console.log(a) }
+    // console.log(b) //undefined
+
+    // //函数声明
+    // function a() {
+    //     console.log(a)
+    // }
+
+    // //函数表达式 
+    // var b = function () {
+    //     console.log(b)
+    // }
+
+
+   console.log('--------------------------------');
+
+   
+    // 函数提升与变量提升的优先级
+    console.log(a);    // f a() {console.log(10)}
+    console.log(a());    // 10 undefined
+    var a = 3;
+    function a() {
+        console.log(10) //10
+    }
+
+    // 由此可见函数提升要比变量提升的优先级要高一些，
+    // 且不会被变量声明覆盖，但是会被变量赋值之后覆盖。
+</script>

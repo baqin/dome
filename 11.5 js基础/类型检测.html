@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 1.typeof 返回对应类型的字符串
+    // var num = 123
+    // var str = '123'
+    // var bool = true
+    // var arr = []
+    // var obj = {}
+    // var fn = function () { }
+    // var cla = class { }
+
+    // console.log(typeof num);    //number
+    // console.log(typeof str);    //string
+    // console.log(typeof bool);   //boolean
+    // console.log(typeof arr);    //object
+    // console.log(typeof obj);   //object
+    // console.log(typeof fn);    //function
+    // console.log(typeof cla);    //function
+    // console.log(typeof null);   //object
+    // console.log(typeof undefined);   //undefined
+    // console.log(typeof Array);   //function
+    // console.log(typeof Object);   //function
+    // console.log(typeof aaaaa);   //未定义的变量也为undefined
+
+    // 总结：typeof检测基本数据类型比较准,null检测为object不代表他是引用数据类型
+    // null为空是特殊的基本数据类型, 引用数据类型都为object,内置构造函数和函数都为function
+
+
+
+
+
+    console.log('-------------------------');
+
+
+
+    // 2. instanceof 检测类型返回布尔值
+
+    // var num = 123
+    // var str = '123'
+    // var bool = true
+    // var arr = []
+    // var obj = {}
+    // var fn = function () { }
+    // var cla = class { }
+    // let number = new Number(12)
+    // console.log(number instanceof Number);   //true
+    // console.log(num instanceof Number); // false
+    // console.log(str instanceof String); // false
+    // console.log(bool instanceof Boolean); // false
+    // console.log(null instanceof Object); // false
+    // console.log(undefined instanceof Object); // false
+
+    // console.log(arr instanceof Array); // true
+    // console.log(arr instanceof Object); // true
+    // console.log(obj instanceof Object); // true
+    // console.log(fn instanceof Function); // true
+    // console.log(fn instanceof Object); // true
+    // console.log(cla instanceof Function); // true
+    // console.log(cla instanceof Object); // true
+
+    // 总结：instanceof 不能检测基本数据类型，
+    // 判断前者的 proto 是否在后者的原型对象上
+
+
+    console.log('-----------------');
+
+
+
+
+    //    3.constructor返回构造函数
+
+
+    // let num = 123
+    // let str = "123"
+    // let bool = true
+    // let arr = []
+    // let obj = {}
+    // let fn = function () { }
+    // let cla = class { }
+    // // 浏览器是这样打印的其实里面有很多内容，属性方法都有，可以使用 console.dir 打印
+    // console.log(num.constructor);  // ƒ Number() { [native code] }
+    // console.log(str.constructor);  // ƒ String() { [native code] }
+    // console.log(bool.constructor); // ƒ Boolean() { [native code]
+
+    // console.log(arr.constructor);  // ƒ Array() { [native code] }
+    // console.log(obj.constructor);  // ƒ Object() { [native code] }
+    // console.log(fn.constructor);  // ƒ Function() { [native code] }
+    // console.log(cla.constructor);  // ƒ Function() { [native code] }
+    // // 但是有一个小问题
+    // function Demo() { }
+    // Demo.prototype = Array.prototype
+    // let demo = new Demo()
+    // console.log(demo.constructor); // ƒ Array() { [native code] }
+    // 这个 demo 的 constructor 应该是对象的，但是我在它实例之前就把它的显示原型给更改为数组的，
+    // 它就会改变为数组的，也可以改变成其他的类型
+
+    // 总结：返回当前值的构造函数，比如向 [] 数组这种，
+    // 都是通过 new Array() 这样去创建实例的，这个 Array 就是数组的构造函数
+
+
+
+
+    console.log('-----------------------------');
+
+
+
+
+    // 4.Object.prototype.toString.call()
+    // Object.prototype.toString.call()，是把object的this指向括号中的并执行，
+    // apply也行，返回字符串[object 首字母大写的其他类型]
+    let num = 123
+    let str = "123"
+    let bool = true
+
+    let arr = []
+    let obj = {}
+    let fn = function () { }
+    let cla = class { }
+
+    console.log(Object.prototype.toString.call(num));// [object Number]
+    console.log(Object.prototype.toString.call(str));// [object String]
+    console.log(Object.prototype.toString.call(bool));// [object Boolean]
+    console.log(Object.prototype.toString.call(null));// [object Null]
+    console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+
+    console.log(Object.prototype.toString.call(arr));// [object Array]
+    console.log(Object.prototype.toString.call(obj));// [object Object]
+    console.log(Object.prototype.toString.call(fn));// [object Function]
+    console.log(Object.prototype.toString.call(cla));// [object Function]
+
+    // 总结：这个方法查的特别的准，可以检查任意类型
+
+
+    console.log('------------------------');
+
+
+
+
+    // 5.Object.getPrototypeOf()
+    // 获取原型，和想要的原型做对比
+    console.log(Object.getPrototypeOf([]) === Array.prototype); // true
+    console.log(Object.getPrototypeOf({}) === Object.prototype); // true
+
+
+
+    // 五种方法的总结
+// typeof：这种方法只能检测基本数据类型，null 和对象的不准 
+// instanceof：只要是基本数据类型检测就是false，只要是引用数据类型，并且右边是 Object 就是true，可以很好的区分是哪一大类型 
+// constructor：可以检查基本和引用数据类型，但是可以被修改，有一定的缺陷 
+// Object.prototype.toString.call()：这种方式是最准的，什么类型都可以检测 
+// Object.getPrototypeOf()：这种方法获取原型
+
+
+</script>

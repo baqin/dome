@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // js数据类型
+    // 1.基本数据类型
+    // number String undefined null boolean symbol bight
+    // 2.引用数据类型
+    //     (1) 标准普通对象: object
+    // (2) 标准特殊对象： Array、RegExp、Date、Math、Error...
+    // (3) 非标准特殊对象：Number、String、Boolean...
+    // (4) 可调用对象/执行对象：function
+    // 简单来说: 数据类型分为基本数据类型和复杂数据类型
+
+
+
+
+    // 1.基本数据类型转换
+    // 将一个字符串转换为数字
+    let strnum = '123'
+    let num = Number(strnum)
+    console.log(num);
+    // 必须是纯数字 要么就是NaN
+    // 将一个字符串强制转换成一个数字
+
+
+    // 1.字符串转换为数字：空字符串变为0，
+    // 如果出现任何非有效数字字符，结果都是NaN
+
+    console.log(Number(''));  //0
+    console.log(Number('10'));   //10
+    console.log(Number(NaN));   //NaN
+    // 2.布尔值转换为数字:true–>1,false–>0
+    console.log(Number(true));  //1
+    console.log(Number(false));   //0
+    // 3.null–>0,undefined–>NaN
+    console.log(Number(null));    //0
+    console.log(Number(undefined));    //NaN
+
+    let a = Symbol('a')
+    // console.log(Number(a));
+    // Symbol无法转换为数字，会报错
+
+    console.log(Number(1n));     //1
+    // Bight去除n 可以直接去除n,只留1  后面跟其他的会报错
+
+    let arr = [10]
+    console.log(Number(arr));  //10
+
+
+
+    let parStr = '12.3'
+    let parse = parseInt(parStr)
+    console.log(parse);
+    // parseInt 取整 
+
+    let parsetflots = '12.35aa'
+    let parflotStr = parseFloat(parsetflots)
+    console.log(parflotStr);
+    // parseFloat 取浮点类型
+
+    console.log('---------------------------');
+
+
+    //  转换为字符串
+    // 1.String
+    // 2.toString
+    // 3.+拼接
+
+    //  1.String
+    var a1 = 10
+    var b1 = String(a1)
+    console.log(b1);
+    console.log(String(1));    //1
+    console.log(String(NaN));   //NaN
+    console.log(String(Symbol()));   //Symbol()
+    console.log(String(null));    //null
+    console.log(String(undefined));   //undefined
+    console.log(String({}));
+    console.log(10 + new Date());
+    console.log(10 + [10]);    //1010
+
+
+
+    // 2.toString
+    var Str1 = 10
+    var Str2 = Str1.toString()
+    console.log(Str2);
+
+
+
+
+    // 3.+拼接
+    console.log(10 + '10');    //1010
+
+
+
+
+
+    
+    console.log('--------------------------');
+
+    var i = 1;
+    console.log(i);    //1
+    var a1 = i++;
+    console.log(i);   //2
+    console.log(a1);   //1
+
+    var i = 1
+    console.log(i);   //1
+    var a2 = ++i;
+    console.log(i);   //2
+    console.log(a2);   //2
+</script>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    // 1.Array.isArray 判断是不是一个数组 返回的是一个布尔值
+
+    // let arr = [1, 2]
+    // console.log(Array.isArray(arr));
+
+
+    // 如果他是一个数组就返回true 不是就返回false
+
+
+    console.log('--------------------');
+
+
+
+
+    //    2.push 向数组末尾添加一个或者多个元素
+    //    返回新数组的长度 会改变原数组
+
+    // let arr = [1, 2]
+    // let arr1 = arr.push(3, 4, 5)
+    // console.log(arr);    //添加后的数组，原数组会发生改变
+    // console.log(arr1);
+
+
+
+    console.log('------------------------------');
+
+
+
+    //    3.pop() 删除并返回数组的最后一个元素,若该数组为空,则返回undefined 
+    //    原数组改变
+    // let arr = [1, 2, 3]
+    // let del = arr.pop()
+    // console.log(arr);    //[1.2]
+    // console.log(del);     //3
+
+
+
+
+
+    console.log('--------------------------');
+
+
+    //     4.unshift() 
+    //   向数组的开头添加一个或多个元素,
+    //   并返回新的数组长度，原数组改变
+
+    //  let arr=[1,2,3]
+    //  let arr1=arr.unshift(4,5)
+    //  console.log(arr);    //原数组发生改变
+    //  console.log(arr1);    //5
+
+
+
+    console.log('-----------------------------');
+
+    // 5. shift() 
+    // 删除并返回数组的第一个元素,若该数组为空,则返回undefined
+    // 原数组改变
+
+    // let arr = [1, 2, 3]
+    // let del = arr.shift()
+    // console.log(del);    //1
+
+
+    console.log('-----------------------------');
+
+    //    6.concat() 
+    //    合并两个或多个数组,生成一个新的数组,原数组不变
+
+    // let arr = [1, 2]
+    // let b = [3, 4]
+    // console.log(arr.concat(b));
+
+
+    console.log('-----------------------------');
+
+    // 7. reverse()
+    // 将数组倒序,原数组改变
+
+
+    // let arr = [1, 2, 3, 4]
+    // console.log(arr.reverse());
+
+
+    console.log('-----------------------------');
+
+
+    //   8.sort()
+    //   对数组元素进行排序,根据字符串unicode码排序,原数组改变
+    // let arr = [1, 2, 4, 3];
+    // // 升序
+    // arr.sort((a, b) => {
+    //     return a - b;
+    // });
+    // console.log(arr);
+    // // 降序
+    // arr.sort((a, b) => {
+    //     return b - a;
+    // })
+    // console.log(arr);
+
+
+    console.log('-----------------------------');
+
+
+    // 9.join()
+    // 将数组的每一项用指定字符连接形成一个字符串,默认连接字符为,逗号
+
+    // let arr = [1, 2, 3, 4];
+    // let str = arr.join();
+    // let str1 = arr.join('-');
+    // console.log(str); // 1,2,3,4
+    // console.log(str1); // 1-2-3-4
+
+
+
+    console.log('-----------------------------');
+
+    // 10.toString()
+    // 将数组转化为字符串
+
+    // let arr = [1, 2, 3, 4, 5];
+    // let str = arr.toString()
+    // console.log(str)// 1,2,3,4,5
+
+
+
+
+    console.log('-----------------------------');
+
+
+    // 11.slice()
+    // slice(start,end).从start开始，end之前结束，不到end。不改变原数
+
+    // let a = ['项目一', '项目二', '项目三']
+    // let arr = arr.slice(0, 2);
+    // console.log(a); // ["项目一","项目二","项目三"]
+    // console.log(arr); // ["项目一","项目二"]
+
+
+
+    console.log('-----------------------------');
+
+    // 12. splice()
+    // splice(start, number, item, item) 从start开始删除number位，
+    // 然后将后面参数插入数组。返回删除元素组成对数组，会改变原数组
+
+    // let arr = [1, 2, 3];
+    // let result = arr.slice(1, 0, 33);
+    // console.log(arr); // [1,2,33,3]
+    // console.log(result); // []
+
+
+    console.log('-----------------------------');
+
+    //  13. .indexOf()
+    // 来查找某个元素的位置,如果不存在就返回-1
+    // 但是不能判断是否有NaN的元素
+
+    //     let arr = ['项目一','项目二','项目三'];
+    // let result = arr.indexOf('项目二');
+    // console.log(arr); // 1
+
+
+    console.log('--------------------------------');
+
+
+    // 14.includes()
+    // 判断是否包含某一元素,直接返回true或者false表示是否包含元素，
+    // 对NaN一样有效
+
+    // let arr = ['项目一', '项目二', '项目三'];
+    // let result = arr.includes('项目二');
+    // console.log(result) // true   有这个数值的话，就是true没有就是false
+
+
+    console.log('--------------------------------');
+
+    // 15.map 循环
+    // 隐设出一个新数组,其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
+    //  不改变原数组
+    //    他会返回值是一个新的数组
+
+    // let testArr = ['子项0', '子项1', '子项2'];
+    // let resultArr = testArr.map((item, index) => {
+    //     return `处理·${item}`
+    // });
+    // console.log(resultArr);
+    // 结果： ["处理·子项0", "处理·子项1", "处理·子项2"]
+
+
+    console.log('--------------------------------');
+
+    //    16. forEach 循环
+    //    对数组的每个元素执行一次提供的函数
+    //     不改变原数组
+
+    // let testArr = ['子项0', '子项1', '子项2'];
+    // testArr.forEach((item, index) => {
+    //     console.log(item);
+    // });
+
+    console.log('--------------------------------');
+
+    // 17. filter 过滤
+    // 对数组的每一项都进行过滤,返回符合条件的item组成的数组
+    // 不会改变原数组
+
+
+    // let arr = [1, 2, 3]
+    // let arr1 = arr.filter((item, index) => {
+    //     return item == '1'
+    // })
+    // console.log(arr);
+    // console.log(arr1);
+
+    console.log('--------------------------------');
+
+    // 18. .find()
+    // 遍历数组,找到第一个符合条件的项,并返回该项，否则返回undefined
+    // 不会改变数组
+
+
+    //  let arr = [1, 2, 3]
+    // let arr1 = arr.find((item, index) => {
+    //     return item == '1'
+    // })
+    // console.log(arr);
+    // console.log(arr1);
+
+    console.log('--------------------------------');
+
+    //     19.findIndex
+    //     遍历数组找到第一个符合条件的项，并返回该项的索引值。否则返回-1。
+    // 不会改变数组对象
+
+    // let arr = [1, 2, 3]
+    // let arr1 = arr.findIndex((item, index) => {
+    //     return item == '1'
+    // })
+    // console.log(arr);
+    // console.log(arr1);   //返回的下标
+
+
+    console.log('--------------------------------');
+
+    // 20.every
+    // 对数组中的每一项运行给定函数，如果该函数对每一项返回true, 则返回true，
+    // 简单说就是看数组的每个元素是否符合要求，都符合则返回true，否则返回false
+
+    // let everyArr = [2, 3, 4];
+    // let everyResult = everyArr.every((item, index) => {
+    //     return item > 0
+    // });
+    // console.log(everyResult);
+    // 结果为: true
+
+
+    console.log('--------------------------------');
+
+    //    21. some
+    // 是对数组中每一项运行指定函数，如果该函数对 任一项返回true，则返回true
+
+    //     let someArr = [2, 3, 4];
+    //     let someResult = someArr.some((item, index) => {
+    //         return item > 3
+    //     });
+    //     console.log(someResult);
+    // // 结果为: true
+
+
+    // function Super() {
+    //     this.a = 1
+    // }
+    // Super.prototype.say = function () {
+    //     console.log('hhh');
+    // }
+    // function Sub() { }
+    // Sub.prototype = new Super()
+    // const test = new Sub()
+    // console.log(test.say());
+
+
+
+    // function Super() {
+    //     this.a = [1, 2]
+    // }
+    // function Sub() { }
+    // Sub.prototype = new Super()
+    // const test1 = new Sub()
+    // test1.a.push(3)
+    // console.log(test1.a);
+    // const test2 = new Sub()
+    // console.log(test2.a);
+
+
+
+    // let Super = function () {
+    //     this.a = 1
+    // }
+    // Super.prototype.c = 3
+    // let Sub = function () {
+    //     console.log(this);
+    //     Super.call(this)
+    //     this.b = 2
+    // }
+    // const test = new Sub()
+    // console.log(test);
+
+
+    // function Super() {
+    //     this.a = [1, 2]
+    // }
+    // Super.prototype.say = function () {
+    //     console.log('hhh');
+    // }
+    // function Sub() {
+    //     Super.call(this)
+    //     this.b = 2
+    // }
+    // Sub.prototype = new Super()
+    // const test1 = new Sub()
+    // console.log(test1.say());
+    // test1.a.push(3)
+    // console.log(test1.a);
+    // const test2 = new Sub()
+    // console.log(test2.a);
+
+
+    // const obj = { a: 1 }
+    // function createObj(o) {
+    //     function Fn() { }
+    //     Fn.prototype = o
+    //     return new Fn()
+    // }
+    // const test = createObj(obj)
+    // console.log(test);
+
+
+    function Super(){
+        this.a=[1,2]
+    }
+    Super.prototype.say=function(){
+        console.log('hhh');
+    }
+</script>

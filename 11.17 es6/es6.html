@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 50px;
+            border: 1px solid rgb(42, 156, 156);
+            float: left;
+            margin-right: 10px;
+        }
+
+        .aa {
+            width: 400px;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aa">
+        <h2>点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    //     let a;
+    //     let b,c,d;
+    //     let e=100;
+    //     let f=521,g='adwad'
+
+
+
+    //    let arr=[123]
+    //    let arr=[2222]
+    // //    不能重复起相同名字
+
+
+
+    //   {
+    //       let str='123'   //块级
+    //   }
+    //   let str='123'
+    //   console.log(str);
+
+    //   console.log(song);
+    //   let song='5556'
+    // 不存在声明提升
+
+
+
+    let items = document.querySelectorAll('.item')
+    // 获取dom元素
+    // console.log(items);
+    for (let i = 0; i < items.length; i++) {
+        // 遍历拿到到dom元素
+        items[i].onclick = function () {
+            // 给每个dom元素做点击事件
+            items[i].style.background = 'pink'
+            // 给每个元素添加颜色
+        }
+    }
+</script>
