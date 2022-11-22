@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // promise是解决编程的问题，他还是个容器，里面保存的是未来才会结束的事件，是用来解决异步操作
+    // promise有三种状态，分别是进行中，已完成，已失败，他的状态是不可逆的
+    // 还有then和catch方法
+    const a=new Promise(function(resolve,reject){
+        setTimeout(function(){
+            // let data='qqq'
+            // resolve(data)
+            let data='zzzz'
+            reject(data)
+        })
+    })
+    a.then(res=>{
+        console.log(res,'1111');
+    }).catch(err=>{
+        console.log(err,'2222');
+    })
+    </script>
+</html>
