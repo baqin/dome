@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 1.Number.EPSILON 表示最小精度
+    // 数组的方法Math.abs;取绝对值|a-b| |1-2|=1
+    // 2.十进制 1,2,3 0.2
+    // 3.Number.isFinite 检测一个数值是否有限数 小数和长度是有限的，无线数表示位数是位数是无止尽的
+    // 4.infinite 无穷大
+    // 5.Number.isNaN 判断一个数值是不是NAN
+    // 6.Number.isInteger 判断是不是整数
+    // 7.Number.parseInt Number.parseFloat
+    // 8.Math.trunc 判断一个数，为正数返回1。为负数返回-1。0为0.
+        function equsl(a,b){
+        if(Math.abs(a-b)<Number.EPSILON){
+            return true
+        }else{
+            return false
+        }
+    }
+   
+    let b=0b1010
+    let o=0o777
+
+    let d=100;
+    let x=0xff
+    console.log(Number.isFinite(100));
+    console.log(Number.isFinite(100/0));
+    console.log(Number.isFinite(Infinity));
+
+    // function equsl(a,b){
+    //     if(Math.abs(a-b)<Number.EPSILON){
+    //         return true
+    //     }else{
+    //         return false
+    //     }
+    // }
+   
+    // let b=0b1010
+    // let o=0o777
+
+    // let d=100;
+    // let x=0xff
+    // console.log(Number.isFinite(100));
+    // console.log(Number.isFinite(100/0));
+    // console.log(Number.isFinite(Infinity));
+
+    // function equsl(a,b){
+    //     if(Math.abs(a-b)<Number.EPSILON){
+    //         return true
+    //     }else{
+    //         return false
+    //     }
+    // }
+   
+    // let b=0b1010
+    // let o=0o777
+
+    // let d=100;
+    // let x=0xff
+    // console.log(Number.isFinite(100));
+    // console.log(Number.isFinite(100/0));
+    // console.log(Number.isFinite(Infinity));
+</script>
+</html>

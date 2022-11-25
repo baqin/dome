@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let obj = new Proxy({}, {
+        get: function (target, key, receiver) {
+            console.log(`获取当前${key}!`);
+            return Reflect.get(target, key, receiver)
+        },
+        set: function (target, key, value, receiver) {
+            console.log(`设置当前${key}!`);
+            return Reflect.set(target, key, value, receiver)
+        }
+        // target需要代理对象
+        //  key 设置的一个属性名
+        //  value设置属性值
+        //   receiver代理后的目标对象
+    })
+    obj.count = 1
+    ++obj.count
+    console.log(obj);
+
+    // let obj = new Proxy({}, {
+    //     get: function (target, key, receiver) {
+    //         console.log(`获取当前${key}!`);
+    //         return Reflect.get(target, key, receiver)
+    //     },
+    //     set: function (target, key, value, receiver) {
+    //         console.log(`设置当前${key}!`);
+    //         return Reflect.set(target, key, value, receiver)
+    //     }
+    //     // target需要代理对象
+    //     //  key 设置的一个属性名
+    //     //  value设置属性值
+    //     //   receiver代理后的目标对象
+    // })
+    // obj.count = 1
+    // ++obj.count
+    // console.log(obj);
+
+    // let obj = new Proxy({}, {
+    //     get: function (target, key, receiver) {
+    //         console.log(`获取当前${key}!`);
+    //         return Reflect.get(target, key, receiver)
+    //     },
+    //     set: function (target, key, value, receiver) {
+    //         console.log(`设置当前${key}!`);
+    //         return Reflect.set(target, key, value, receiver)
+    //     }
+    //     // target需要代理对象
+    //     //  key 设置的一个属性名
+    //     //  value设置属性值
+    //     //   receiver代理后的目标对象
+    // })
+    // obj.count = 1
+    // ++obj.count
+    // console.log(obj);
+</script>
+
+</html>

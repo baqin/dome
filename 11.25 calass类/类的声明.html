@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 手机
+    function Phone(brand, price) {
+        this.brand = brand
+        this.price = price
+    }
+    Phone.prototype.call = function () {
+        console.log('我手机可以敲核桃');
+    }
+    Phone.prototype.info = function () {
+        return '(我手机的型号是:' + this.brand + ',我手机的价格是:' + this.price + ',我手机铃声是大喇叭)'
+    }
+    let p1 = new Phone('苹果', '5888')
+    let ruls = p1.info()
+    console.log(ruls);
+
+    class Phins {
+        constructor(brand, price) {1
+            this.brand = brand,
+                this.price = price
+        }
+        call() {
+            console.log('我是可以打电话的');
+        }
+        info() {
+            return '(我手机的型号是:' + this.brand + ',我手机的价格是:' + this.price + ',我手机铃声是大喇叭)'
+        }
+    }
+    let p = new Phins('苹果', '5888')
+    let rul = p.info()
+    console.log(p.call);
+    console.log(p.info);
+
+    // // 手机
+    // function Phone(brand, price) {
+    //     this.brand = brand
+    //     this.price = price
+    // }
+    // Phone.prototype.call = function () {
+    //     console.log('我手机可以敲核桃');
+    // }
+    // Phone.prototype.info = function () {
+    //     return '(我手机的型号是:' + this.brand + ',我手机的价格是:' + this.price + ',我手机铃声是大喇叭)'
+    // }
+    // let p1 = new Phone('苹果', '5888')
+    // let ruls = p1.info()
+    // console.log(ruls);
+
+    // class Phins {
+    //     constructor(brand, price) {1
+    //         this.brand = brand,
+    //             this.price = price
+    //     }
+    //     call() {
+    //         console.log('我是可以打电话的');
+    //     }
+    //     info() {
+    //         return '(我手机的型号是:' + this.brand + ',我手机的价格是:' + this.price + ',我手机铃声是大喇叭)'
+    //     }
+    // }
+    // let p = new Phins('苹果', '5888')
+    // let rul = p.info()
+    // console.log(p.call);
+    // console.log(p.info);
+
+    // 手机
+    // function Phone(brand, price) {
+    //     this.brand = brand
+    //     this.price = price
+    // }
+    // Phone.prototype.call = function () {
+    //     console.log('我手机可以敲核桃');
+    // }
+    // Phone.prototype.info = function () {
+    //     return '(我手机的型号是:' + this.brand + ',我手机的价格是:' + this.price + ',我手机铃声是大喇叭)'
+    // }
+    // let p1 = new Phone('苹果', '5888')
+    // let ruls = p1.info()
+    // console.log(ruls);
+
+    // class Phins {
+    //     constructor(brand, price) {1
+    //         this.brand = brand,
+    //             this.price = price
+    //     }
+    //     call() {
+    //         console.log('我是可以打电话的');
+    //     }
+    //     info() {
+    //         return '(我手机的型号是:' + this.brand + ',我手机的价格是:' + this.price + ',我手机铃声是大喇叭)'
+    //     }
+    // }
+    // let p = new Phins('苹果', '5888')
+    // let rul = p.info()
+    // console.log(p.call);
+    // console.log(p.info);
+</script>
+
+</html>
