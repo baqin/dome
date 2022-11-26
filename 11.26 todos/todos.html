@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    } */
+    body {
+        background-image: linear-gradient(to right, #ffb2b9, #ffc0a4);
+    }
+
+    .box {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        background: #fff;
+        width: 600px;
+        height: 400px;
+        border-radius: 20px;
+    }
+
+    img {
+        width: 70px;
+        height: 120px;
+        margin: 15px 0 0 220px;
+    }
+
+    .but1 {
+        margin: 50px 0 0 10px;
+        transform: rotate(3deg);
+        font-size: 12px;
+        padding: 0.25em 0.8em 0.15em;
+        border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+        color: #fff;
+        background: #fe7345;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 80px;
+        height: 40px;
+    }
+
+    .nav {
+        display: flex;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    input {
+
+        outline: none;
+        margin: 0 20px 0 100px;
+        color: #b7b7b8;
+        width: 340px;
+        border: 0;
+        border-bottom: 3px dashed #fe7345;
+        padding: 5px 0 3px;
+        font-size: 18px;
+        background: transparent;
+    }
+
+    .but2 {
+        position: relative;
+        transform: rotate(4deg);
+        border-radius: 6px;
+        transition: transform .25s cubic-bezier(.175, .885, .32, 1.275);
+        box-shadow: 0px 4px 0px #ef6c41;
+    }
+
+    .p {
+        color: #b7b7b8;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    ul {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    li {
+        margin: 0 15px 0 15px;
+    }
+
+    .li {
+        color: #fff;
+        background-color: #fe7345;
+        width: 50px;
+        height: 30px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 30px;
+    }
+  span{
+    margin: 0 10px 0 0;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+    background: #b7b7b8;
+    color: #fff;
+  }
+</style>
+
+<body>
+    <div class="box">
+        <div class="nav">
+            <img src="./1.svg" alt="">
+            <button class="but1">To-Do List</button>
+        </div>
+        <h3>~Today I need to~</h3>
+        <div class="nav">
+            <input type="text" class="txt" placeholder="Add new todo...">
+            <button class="but2" onclick="add">submit</button>
+        </div>
+        <ul>
+            <li></li>
+        </ul>
+        <p class="p">
+            
+            <span class="span">√</span>
+            Congrat, you have no more tasks to do</p>
+        <ul class="ul">
+            <li>0 item left</li>
+            <li class="li">ALL</li>
+            <li>Clear completed</li>
+        </ul>
+        <!-- <ul class="ul">
+            <li> item left</li>
+            <li class="li">ALL</li>
+            <li>Active</li>
+            <li>Conmpleted</li>
+            <li>Clear completed</li>
+        </ul> -->
+    </div>
+</body>
+<script>
+     var txt=document.querySelector('.txt')
+    var but2=document.querySelector('.but2')
+    but2.onclick=function(){
+        let input1=txt.value
+        if(input1==''){
+            return
+        }
+        var li=document.getElementsByTagName(li)
+        li.innerHTML=`<li>
+            <input type="checkbox">
+            <span>${key}</span>
+            <span class="sp"></span>
+            </li>`
+            ul.append(li)
+            value.value=''
+    }
+</script>
+</html>
