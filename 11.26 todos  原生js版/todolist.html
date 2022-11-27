@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOdosApp</title>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 头部 -->
+        <div class="nav">
+            <img src="https://www.todolist.cn/img/note.75134fb0.svg" alt="">
+            <div class="title">To-Do List</div>
+        </div>
+        <!-- 第二层 -->
+        <div class="by">
+            <p>~ Today I need to ~</p>
+        </div>
+        <!-- 第三层 -->
+        <div class="cen">
+            <input type="text" placeholder="Add new todo ..." class="input">
+            <button>Submit</button>
+        </div>
+        <!-- 第四层 -->
+        <div class="footer">
+            <ul>
+                <li>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 底部 -->
+        <div class="en">
+            <p><span class="span">√</span> Congrat, you have no more tasks to do</p>
+        </div>
+        <div class="unq">
+            <p><span class="spp">0</span> item left</p>
+            <p class="titlee">All</p>
+            <span>Clear completed</span>
+        </div>
+        <!-- <div class="unq">
+            <p><span class="spp">0</span> item left</p>
+            <p>ALL</p>
+            <p>Active</p>
+            <p>Conmpleted</p>
+            <p>Clear completed</p>
+        </div> -->
+    </div>
+
+</body>
+<script>
+    //  获取输入框值
+    var value = document.querySelector('.input')
+    // 获取按钮
+    var button = document.querySelector("button")
+    //获取ul
+    var ul = document.querySelector('ul')
+    // 封装添加内容
+    function fool() {
+        //判断值是不是为空 如果是终止
+        var key = value.value // 先获取输入框的值
+        if (key == '') {
+            return
+        }
+        // 创建li
+        var li = document.createElement('li');
+        //然后进行添加内容
+        li.innerHTML = `
+                <input type="checkbox" class="ck">
+                 <span>${key}</span>
+                 <span class="sp">X</span>
+            `
+        ul.append(li);
+        //ul元素结点添加
+        value.value = ''//清空
+        //删除
+        //获取所有的X
+        var sp = document.querySelectorAll('.sp')
+        //循环 找到删除的下标
+        for (var i = 0; i < sp.length; i++) {
+            // sp[i]就是我们点击删除 点击事件
+            sp[i].onclick = function () {
+                // parentNode父元素  
+                //this指当前元素
+                //remove删除
+                this.parentNode.remove()
+            }
+        }
+        // 获取数量
+        var spp = document.querySelector('.spp')
+        spp.innerHTML = ul.children.length - 1;
+    }
+    // 通过点击按钮添加
+    button.onclick = function () {
+        // 调用封装好的添加内容
+        fool()
+    }
+    // 通过按回车键添加
+    value.onkeyup = function (e) {
+        //判断是不是按下回车键
+        if (e.keyCode == 13) {
+            //调用封装好的添加内容
+            fool()
+        }
+    }
+    ul.addEventListener('click', function (e) {
+        // 先找到点击的复选框
+        if (e.target.className == 'ck') {
+            // 判断布尔值是正确就循环给添加样式
+            if (e.target.checked == true) {
+                var li = document.querySelectorAll('li');
+                console.log(li);
+                for (let i = 0; i < li.length; i++) {
+                    if (e.target.checked) {
+                        li[i].className = 'flag'
+                    } else {
+                        var del = document.querySelector('.flag')
+                        li[i].remove('.flag')
+                    }
+                }
+            }
+        }
+    })
+
+</script>
+<style>
+    .flag {
+        background-color: #fe7345;
+        color: #fff;
+        text-decoration: line-through;
+    }
+    body {
+        background-image: linear-gradient(90deg, #ffb0bb, #ffc2a2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 150px 0;
+    }
+    .box {
+        width: 500px;
+        height:500px;
+        background-color: #f2f2f2;
+        border-radius: 20px;
+    }
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+    img {
+        width: 100px;
+        height: 70px;
+    }
+    .title {
+        color: aliceblue;
+        background-color: #fe7345;
+        transform: rotate(5deg);
+        padding: 10px 10px 10px 10px;
+        border-radius: 12px;
+        font-weight: 700;
+    }
+    .by {
+        text-align: center;
+        font-weight: 700;
+    }
+    .cen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 50px;
+    }
+    input {
+        outline: none;
+        width: 100%;
+        background-color: #f2f2f2;
+        border: 0;
+        border-bottom: 3px dashed #fe7345;
+        padding: 5px 0 3px;
+    }
+    button {
+        background-color: #fff;
+        padding: 5px;
+        margin-left: 10px;
+        transform: rotate(3deg);
+        border: 2px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 4px 0 #a0492c;
+    }
+    li {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .sp {
+        padding-right: 70px;
+        padding-left: 200px;
+    }
+    .en {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .en p {
+        font-size: 12px;
+        color: #a8a6a7;
+    }
+
+    .span {
+        margin: 0 10px 0 0;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        line-height: 15px;
+        background: #b7b7b8;
+        color: #fff;
+    }
+    .unq {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .unq .titlee {
+        background-color: #fe7345;
+        color: #fff;
+        padding: 4px;
+    }
+</style>
+
+</html>
