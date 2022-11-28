@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let hope = '我想上百星王者'
+    let person = {
+        name: "张世权", age: 18,
+        // hope
+    }
+    Object.defineProperty(person, 'hope', {
+        // value: hope，
+        // enumerable: true，
+        // 使变量变成可循环的
+        // writable:true，
+        // 使变量变成可修改的
+        // configurable: true，// 使属性可以被删除
+        get: function () {
+            console.log("我被读取了");
+            return hope
+        },
+        set(value) {
+            hope = value
+            console.log("我被设置了,value")
+}
+    })
+    console.log(person);
+</script>
+
+</html>

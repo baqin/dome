@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>欢迎来到{{name}}学习</h2>
+        <button v-on:click="showInfo">点我提示信息</button>
+        <button @click="showInfo1">点我提示信息1 (不传参)</button>
+        <button @click="showInfo2(sevent,66)">点我提示信息2 (传参) </button>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+const vm = new Vue({
+    el:'#root',
+    data:{
+name:"我要高薪就业"
+    },
+methods:{
+}
+</script>
+
+</html>

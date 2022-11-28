@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Yanone Kaffeesatz,sans-serif;
+        }
+
+        body {
+            padding: 50px 0;
+            min-height: 86vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(90deg, #ffafbd, #ffc3a0);
+            background-repeat: no-repeat;
+        }
+
+        .box {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .cont {
+            padding: 30px 40px 20px;
+            text-align: center;
+            width: 380px;
+            max-width: 100%;
+            margin: 0 auto;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            background: #f2f2f2;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .headerimg {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        .title {
+            transform: rotate(3deg);
+            font-size: 21px;
+            padding: 0.25em 0.8em 0.15em;
+            border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+            color: #fff;
+            background: #fe7345;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .form {
+            margin-top: 25px;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 28px;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-input {
+            display: inline-block;
+            flex-grow: .65;
+            margin-right: 15px;
+        }
+
+        .btn {
+            position: relative;
+            transform: rotate(4deg);
+            border-radius: 6px;
+            transition: transform .25s cubic-bezier(.175, .885, .32, 1.275);
+        }
+
+        .pgone {
+            width: 58%;
+            position: relative;
+            display: block;
+            font-size: 16.5px;
+            padding: 0.34em 0.84em;
+            border: 2px solid #494a4b;
+            border-radius: inherit;
+            background-color: #fff;
+        }
+
+        .form-input .input {
+
+            width: 100%;
+            border-bottom: 3px dashed #fe7345;
+            padding: 5px 0 3px;
+            font-size: 18px;
+            background: transparent;
+
+        }
+
+        input {
+            outline: none;
+            border: none;
+
+        }
+
+        button {
+            outline: none;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .btn:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            transform: scaleY(1.1);
+            border: 1px solid #494a4b;
+            border-radius: inherit;
+            transform-origin: top;
+            background-image: url(data:image/png;base64,R0lGODlhBAAEAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NUY1OENCRDdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NUY1OENCRTdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1RjU4Q0JCN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1RjU4Q0JDN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABAAAAgYEEpdoeQUAOw==);
+            background-color: #fe7345;
+            transition: transform .25s cubic-bezier(.175, .885, .32, 1.275);
+        }
+
+        .empty {
+            display: flex;
+            color: #b7b7b8;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+            -webkit-animation: zoom-132cabf7 .45s ease-in-out;
+            animation: zoom-132cabf7 .45s ease-in-out;
+        }
+
+        .img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .empty .msg {
+            font-size: 13px;
+            padding-top: 5px;
+            color: rgba(73, 74, 75, .45);
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            border: 0;
+            background: #f2f2f2;
+        }
+
+        .footer {
+            display: none;
+            justify-content: space-between;
+        }
+
+        .footer div {
+            margin-left: 10px;
+            font-size: 13px;
+        }
+
+        .vla {
+            margin-left: 10px;
+        }
+
+        li {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .lis {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px 8px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .svg-inline--fa {
+            width: 15px;
+            height: 15px;
+        }
+
+        .paths {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes dog {
+            0% {
+                transform: rotateY(0);
+            }
+            50%{
+                transform: rotateY(20deg);
+            }
+            100% {
+                transform: rotateY(0);
+            }
+        }
+
+        .pgone:nth-child(1) {
+            transform: rotateY(0) rotateY(0deg);
+        }
+
+        .pgone:nth-child(2) {
+            transform: rotateY(60deg) translateZ(20deg);
+        }
+
+        .pgone:nth-child(3) {
+            transform: rotateY(120deg) translateZ(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="cont">
+            <header class="header">
+                <div>
+                    <img class="headerimg" src="https://www.todolist.cn/img/note.75134fb0.svg" alt="">
+                </div>
+                <div class="title">
+                    To-Do List
+                </div>
+            </header>
+            <div class="form">
+                <h1>~ Today I need to ~</h1>
+
+                <div class="wrapper">
+                    <div class="form-input">
+                        <input class="input" placeholder="Add new todo...">
+                    </div>
+                    <button type="submit" class="btn" id="btn">
+                        <span class="pgone">Sumbit</span>
+                    </button>
+                </div>
+                <ul class="center">
+
+                </ul>
+            </div>
+            <div class="empty">
+                <svg class="svg-inline--fa fa-clipboard-check fa-w-12 icon" aria-hidden="true" focusable="false"
+                    data-prefix="fas" data-icon="clipboard-check" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512" data-v-132cabf7="">
+                    <path class="paths" fill="currentColor" d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 
+                        112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 
+                        40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm121.2 231.8l-143 
+                        141.8c-4.7 4.7-12.3 4.6-17-.1l-82.6-83.3c-4.7-4.7-4.6-12.3.1-17L99.1 285c4.7-4.7 12.3-4.6 
+                        17 .1l46 46.4 106-105.2c4.7-4.7 12.3-4.6 17 .1l28.2 28.4c4.7 4.8 4.6 12.3-.1 17z">
+                    </path>
+                </svg>
+                <span class="msg">Congrat, you have no more tasks to do</span>
+            </div>
+            <div class="footer">
+                <div>1 item left</div>
+                <div class="all">All</div>
+                <div class="active">Active</div>
+                <div class="com">Completed</div>
+                <div class="dels">Clear completed</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var input = document.querySelector('.input')
+    var center = document.querySelector('.center')
+    var empty = document.querySelector('.empty')
+    var footer = document.querySelector('.footer')
+    var pgone = document.querySelector('.pgone')
+    var all = document.querySelector('.all');
+    var active = document.querySelector('.active');
+    var com = document.querySelector('.com');
+    var flag = false;
+    input.onkeydown = function (e) {
+        console.log(e);
+        if (e.keyCode == 13) {
+            if (input.value == '') {
+                alert('内容不能为空')
+                pgone.transform = 'rotate(20deg)'
+                return false
+            } else {
+                empty.style.display = 'none'
+                footer.style.display = 'block'
+                footer.style.display = 'flex'
+                var li = document.createElement('li')
+                li.innerHTML = `<div class="lis">
+                        <input type="checkbox" class="qh" /> <p class="vla">${input.value}</p ></div>
+                             <span class="del">X</span></div>`
+                center.appendChild(li)
+                input.value = ''
+            }
+        }
+    }
+    pgone.onclick = function () {
+        console.log(1);
+        if (input.value == '') {
+            // alert('内容不能为空')
+                // .transform = 'rotate()'
+            return false
+        } else {
+            empty.style.display = 'none'
+            footer.style.display = 'block'
+            footer.style.display = 'flex'
+            var li = document.createElement('li')
+            li.innerHTML = `<div class="lis">
+                        <input type="checkbox" class="qh" /> <p class="vla">${input.value}</p ></div> <span class="del">X</span></div>`
+            center.appendChild(li)
+            input.value = ''
+        }
+    }
+    center.onclick = function (e) {
+        if (e.target.className == 'del') {
+            e.target.parentNode.remove()
+        }
+        if (center.children.length == 0) {
+            empty.style.display = 'block'
+            footer.style.display = 'none'
+        }
+        // 切换状态
+        if (e.target.className == 'qh') {
+            if (e.target.checked) {
+                e.target.parentNode.style.textDecoration = 'line-through'
+                e.target.parentNode.style.border = "0"
+                e.target.parentNode.parentNode.style.backgroundColor = '#fe7345'
+                e.target.parentNode.parentNode.style.color = '#fff'
+                e.target.style.backgroundColor = '#fe7345'
+                e.target.style.border = "0"
+            } else {
+                e.target.parentNode.style.textDecoration = 'none'
+                e.target.parentNode.parentNode.style.backgroundColor = ''
+                e.target.parentNode.parentNode.style.color = '#000'
+            }
+        }
+    }
+    //选中删除
+    var dels = document.querySelector('.dels');
+    dels.onclick = function () {
+        for (var i = 0; i < center.children.length; i++) {
+            if (center.children[i].children[0].children[0].checked) {
+                center.removeChild(center.children[i])
+                i--
+            }
+        }
+        if (center.children.length == 0) {
+            empty.style.display = 'block'
+            footer.style.display = 'none'
+        }
+    }
+    //tab切换
+    all.onclick = function (e) {
+        e.target.style.color = '#fff';
+        e.target.style.backgroundColor = '#fe7345';
+        active.style.color = ''
+        active.style.backgroundColor = ''
+        com.style.color = ''
+        com.style.backgroundColor = ''
+        for (var i = 0; i < center.children.length; i++) {
+            center.children[i].style.display = 'flex'
+        }
+    }
+    active.onclick = function (e) {
+        //all的样式清空
+        all.style.color = ''
+        all.style.backgroundColor = ''
+        com.style.color = ''
+        com.style.backgroundColor = ''
+        e.target.style.color = '#fff'
+        e.target.style.backgroundColor = '#fe7345'
+        for (var i = 0; i < center.children.length; i++) {
+            if (center.children[i].children[0].children[0].checked) {
+                center.children[i].style.display = 'none'
+            } else {
+                center.children[i].style.display = 'flex'
+            }
+        }
+    }
+    com.onclick = function (e) {
+        all.style.color = ''
+        all.style.backgroundColor = ''
+        active.style.color = ''
+        active.style.backgroundColor = ''
+        e.target.style.color = '#fff'
+        e.target.style.backgroundColor = '#fe7345'
+        for (var i = 0; i < center.children.length; i++) {
+            if (center.children[i].children[0].children[0].checked) {
+                center.children[i].style.display = 'flex'
+            } else {
+                center.children[i].style.display = 'none'
+            }
+        }
+    }
+    document.getElementById('btn').addEventListener('click',function(e){
+        Shaking(e.target)
+    })
+    function Shaking(el) {
+        const maxDistance = 5 //抖动偏移距离
+        const interval = 20 //抖动快慢 数字越小越快  太小DOM反应不过来 看不出动画
+        const quarterCycle = 2 //一次完整来回抖动的四分之一周期
+        let curDistance = 0
+        let direction = 1
+        const timer = setInterval(function(){
+            if(direction > 0){
+                curDistance++
+                if(curDistance === maxDistance){
+                    direction = -1
+                }
+            }else{
+                curDistance--
+                if(curDistance === -maxDistance){
+                    direction = 1
+                }
+            }
+            el.style.top = curDistance + 'px'
+        },interval)
+        setTimeout(function(){
+            clearInterval(timer)
+            el.style.top = '0 px'
+        },maxDistance * interval * quarterCycle)
+    }
+
+</script>
+
+</html>
