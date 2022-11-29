@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+   <!-- computed的特点
+   1.具有缓存性
+   2.是同步的，不能异步操作
+   3.数据和属性来源于data数据中，具有多对一的关系 -->
+   <div id="root">
+    <p>姓名：<input type="text" v-model:value="name"></p>
+    <p>性别：<input type="text" v-model="sex"></p>
+    <div>全部<input type="text" v-model="getName"></div>
+   </div>
+</body>
+<script>
+   new Vue({
+    el:'#root',
+    data() {
+        return {
+            name:'张三',
+            sex:'男'
+        }
+    },
+    computed:{
+        // getName(){
+        //     return this.name+ 
+        //     '-'+this.sex
+        // },
+        getName:{
+            get:function(){
+                return this.name+ '-'+this.sex
+            },
+            set:function(val){
+                let result=val.split('-')
+                this.name=result[0]
+                this.sex=result[1]
+            },
+        }
+    }
+   })
+</script>
+</html>

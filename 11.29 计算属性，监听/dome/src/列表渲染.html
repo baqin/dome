@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <button @click="add">添加一个老刘</button>
+        <ul>
+            <li v-for="(item, index) in persons" :key="index">
+                {{item.name}}--{{item.age}}
+                <input type="text">
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+    new Vue({
+        el: '#root',
+        data: {
+            persons: [
+                { id: '1', name: '张三', age: 18 },
+                { id: '2', name: '李四', age: 18 },
+                { id: '3', name: '王五', age: 18 },
+            ],
+        }, 
+        methods: {
+            add() {
+                const p = { id: '4', name: '老刘', age: 40 }
+                this.persons.unshift(p)
+            }
+        },
+    })
+</script>
+<!-- <script type="text/javascript">
+    Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+    new Vue({
+        el: '#root',
+        data: {
+            persons: [
+                { id: '1', name: '张三', age: 18 },
+                { id: '2', name: '李四', age: 18 },
+                { id: '3', name: '王五', age: 18 },
+            ],
+            methods: {
+                add() {
+                    const p = { id: '004', name: '老刘', age: 40 }
+                    this.persons.unshift(p)
+                }
+            },
+
+        }
+    })
+</script> -->
+<!-- <script type="text/javascript">
+    Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+    new Vue({
+        el: '#root',
+        data: {
+            persons: [
+                { id: '1', name: '张三', age: 18 },
+                { id: '2', name: '李四', age: 18 },
+                { id: '3', name: '王五', age: 18 },
+            ],
+            methods: {
+                add() {
+                    const p = { id: '004', name: '老刘', age: 40 }
+                    this.persons.unshift(p)
+                }
+            },
+
+        }
+    })
+</script> -->
+
+</html>

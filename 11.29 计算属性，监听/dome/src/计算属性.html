@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <!-- 特点：1.computed具有缓存性
+        2.computed是同步，不能异步操作
+    3.数据和属性来源于data数据中，具有多对一的关系 -->
+    <div id="root">
+        <p>姓:<input type="text" v-model:value="name"></p>
+        <div>名:<input v-model="sex" /></div>
+        <div>全名: <input v-model="getName"></div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#root',
+        data: {
+            name: '张三',
+            sex: '啊',
+        },
+        computed: {
+            // 完整写法
+            getName: {
+                get: function () {
+                    return this.name + '-' + this.sex
+                },
+                set: function (val) {
+                    console.log("我是被设置的");
+                    /**1.使用字符串切割的方法，将字符串分开，并进行赋值*/
+                    let result = val.split("-")
+                    this.name = result[0]
+                    this.sex = result[1]
+                },
+                // 简单写法
+                getName(){
+                    console.log("我是被读取的");
+                    return this.name + '-' + this.sex
+                }
+            }
+        }
+    })
+</script>
+//
+<script>
+//     new Vue({
+//         el: '#root',
+//         data: {
+//             name: '张三',
+//             sex: '啊'
+//         },
+//         computed: {
+//             // 完整写法
+//             getName: {
+//                 get: function () {
+//                     // console.log("我是被读取的');
+//                     return this.name + '-' + this.sex
+//                     // setTimeout(function() {
+//                     // console.log(我是能被读取的');
+//                     // }，1000)
+//                 },
+//                 set: function (val) {
+//                     console.log("我是被设置的");
+//                     /**1.使用字符串切割的方法，将字符串分开，并进行赋值*/
+//                     let result = val.split("_")
+//                     this.name = result[0]
+//                     this.sex = result[1]
+//                 },
+//             },
+//             // 简单写法
+//             // getName(){
+//             //     console.log("我是被读取的");
+//             //     return this.name + '-' + this.sex
+//             // }
+//         }
+//     })
+// </script>
+//
+<script>
+//     new Vue({
+//         el: '#root',
+//         data: {
+//             name: '张三',
+//             sex: '啊'
+//         },
+//         computed: {
+//             // 完整写法
+//             getName: {
+//                 get: function () {
+//                     // console.log("我是被读取的');
+//                     return this.name + '-' + this.sex
+//                     // setTimeout(function() {
+//                     // console.log(我是能被读取的');
+//                     // }，1000)
+//                 },
+//                 set: function (val) {
+//                     console.log("我是被设置的");
+//                     /**1.使用字符串切割的方法，将字符串分开，并进行赋值*/
+//                     let result = val.split("_")
+//                     this.name = result[0]
+//                     this.sex = result[1]
+//                 },
+//             },
+//             // 简单写法
+//             // getName(){
+//             //     console.log("我是被读取的");
+//             //     return this.name + '-' + this.sex
+//             // }
+//         }
+//     })
+// </script>
+
+</html>
