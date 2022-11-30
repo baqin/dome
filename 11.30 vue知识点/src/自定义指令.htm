@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div v-big="n"></div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                n: '333'
+            }
+            // 用来配置自定义指令
+            directives: {
+                big(element, binding)
+                console.log(element);
+                console.log(binding);
+                element.innerText.binding.value * 10
+            }
+            // fbind: {
+            //     //指令与元素成功绑定时 (一上来)
+            //     bind(element, binding){
+            //         element.value = binding.value
+            //     }
+            //     //指令所在元素被插入页面时
+            //     inserted(element, binding){
+            //         element.focus()
+            //     }
+            //     //指令所在的模板被重新解析时
+            //     update(element, binding){
+            //         element.value = binding.value
+            //     }
+            // }
+        }
+    })
+</script>
+<!-- <script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                n: '333'
+            }
+            // 用来配置自定义指令
+            directives: {
+                big(element, binding)
+                console.log(element);
+                console.log(binding);
+                element.innerText.binding.value * 10
+            }
+            // fbind: {
+            //     //指令与元素成功绑定时 (一上来)
+            //     bind(element, binding){
+            //         element.value = binding.value
+            //     }
+            //     //指令所在元素被插入页面时
+            //     inserted(element, binding){
+            //         element.focus()
+            //     }
+            //     //指令所在的模板被重新解析时
+            //     update(element, binding){
+            //         element.value = binding.value
+            //     }
+            // }
+        }
+    })
+</script> -->
+</html>

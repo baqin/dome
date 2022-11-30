@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root"> </div>
+</body>
+<script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+
+            }
+        },
+        beforeCreate() {
+            console.log('beforeCreate')
+        },// 实例化基础 new 实例化节点
+        created() {
+            console.log('created')
+        },
+        // 配置data 数据模版
+        // 不能获取到dom元素
+        beforeUpdate() {
+            console.og(' beforeUpdate')
+             // 数据更新前
+        },      
+        updated() {
+            console.log('updated') 
+            // 数据更新后
+        },
+       
+        beforeMount() {
+            console.log(beforeMount);
+            // 这个是虚拟dom的诞生并且进行对比
+        },
+        mounted() {
+            // 元素的加载 dom和data都可以获取到
+            console.log('mounted')
+        }
+    })
+</script>
+<!-- <script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+
+            }
+        },
+        beforeCreate() {
+            console.log('beforeCreate')
+        },// 实例化基础 new 实例化节点
+        created() {
+            console.log('created')
+        },
+        // 配置data 数据模版
+        // 不能获取到dom元素
+        beforeUpdate() {
+            console.og(' beforeUpdate')
+             // 数据更新前
+        },      
+        updated() {
+            console.log('updated') 
+            // 数据更新后
+        },
+       
+        beforeMount() {
+            console.log(beforeMount);
+            // 这个是虚拟dom的诞生并且进行对比
+        },
+        mounted() {
+            // 元素的加载 dom和data都可以获取到
+            console.log('mounted')
+        }
+    })
+</script> -->
+</html>

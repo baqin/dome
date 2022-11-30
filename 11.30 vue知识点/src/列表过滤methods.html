@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 需求: 1.实现一个列表的 模糊 匹配
+1: input框
+1: 实现的功能
+1.1.输入的时候实现搜索
+2: 标题
+1.2 value值的绑定 事件的绑定
+3: 实现列表的展示
+1.准备一个数据
+2.绘制页面展示效果
+4:模糊匹配，搜索一个关键字，进行查找出全部包含当前关键字的列表信息
+5: 防抖:
+6:边界情况: 输入空串，空格，特殊的情况时候列表应该怎么展示
+总结: 可以使用computed
+watch
+methods -->
+    <div id="root">
+        <h1>人员列表</h1>
+        <input type="text" v-model="sooname" placeholder="查找" @input="find">
+        <ul>
+            <li v-for="item in lists" :key="item.id">
+                {{item.name}}-{{item.age}}-{{item.sex}}
+            </li>
+        </ul>
+        <!-- <h1>人员列表</h1>
+        <input type="text" v-model="sooname" placeholder="查找" @input="find">
+        <ul>
+            <li v-for="item in lists" :key="item.id">
+                {{item.name}}-{{item.age}}-{{item.sex}}
+            </li>
+        </ul> -->
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                sooname: '',
+                list: [
+                    { id: 1, name: '张三', age: 18, sex: "男" },
+                    { id: 2, name: '小红', age: 18, sex: "女" },
+                    { id: 3, name: '小梅', age: 18, sex: "女" },
+                    { id: 4, name: '老六', age: 18, sex: "男" }
+                ],
+                lists: []
+            }
+        },
+        // methods方法
+        methods: {
+            find() {
+                this.lists = this.list.filter(i => {
+                    return i.name.includes(this.sooname)
+                })
+            }
+        },
+        created() {
+            this.find()
+        },
+        // 计算属性
+        //     computed: {
+        //         sooname() {
+        //             return this.list.filter(i => i.name.indexOf(this.sooname) !== -1)
+        //         }
+        //     }
+    })
+</script>
+<!-- <script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                sooname: '',
+                list: [
+                    { id: 1, name: '张三', age: 18, sex: "男" },
+                    { id: 2, name: '小红', age: 18, sex: "女" },
+                    { id: 3, name: '小梅', age: 18, sex: "女" },
+                    { id: 4, name: '老六', age: 18, sex: "男" }
+                ],
+                lists: []
+            }
+        },
+        // methods方法
+        methods: {
+            find() {
+                this.lists = this.list.filter(i => {
+                    return i.name.includes(this.sooname)
+                })
+            }
+        },
+        created() {
+            this.find()
+        },
+        // 计算属性
+        //     computed: {
+        //         sooname() {
+        //             return this.list.filter(i => i.name.indexOf(this.sooname) !== -1)
+        //         }
+        //     }
+    })
+</script> -->
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>人员列表</h1>
+        <button @click="undata">更新张三数据</button>
+        <ul>
+            <li v-for="item in list" :key="item.id">
+                {{item.name}}-{{item.age}}-{{item.sex}}
+            </li>
+        </ul>
+        <!-- <h1>人员列表</h1>
+        <button @click="undata">更新张三数据</button>
+        <ul>
+            <li v-for="item in list" :key="item.id">
+                {{item.name}}-{{item.age}}-{{item.sex}}
+            </li>
+        </ul> -->
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                list: [
+                    { id: 1, name: '张三', age: 18, sex: "男" },
+                    { id: 2, name: '小红', age: 18, sex: "女" },
+                    { id: 3, name: '小梅', age: 18, sex: "女" },
+                    { id: 4, name: '老六', age: 18, sex: "男" }
+                ],
+            }
+        },
+     methods: {
+        undata() {
+            // this.list[0].name ='小七' //奏效
+            // this.list[0].age = 22 //奏效
+            // this.list[0].sex = '女' //奏效
+            // this.list.splice(0,1,{id:'001',name:'小七',age:22,sex:'女'})
+            Vue.set(this.list,0,{id:'001',name:'小七',age:22,sex:'女'})
+            // this.$set(this.list,0,{id:'1',name:'小七',age:22,sex:'女'})
+        }
+     },
+    })
+</script>
+<!-- <script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                list: [
+                    { id: 1, name: '张三', age: 18, sex: "男" },
+                    { id: 2, name: '小红', age: 18, sex: "女" },
+                    { id: 3, name: '小梅', age: 18, sex: "女" },
+                    { id: 4, name: '老六', age: 18, sex: "男" }
+                ],
+            }
+        },
+     methods: {
+        undata() {
+            // this.list[0].name ='小七' //奏效
+            // this.list[0].age = 22 //奏效
+            // this.list[0].sex = '女' //奏效
+            // this.list.splice(0,1,{id:'001',name:'小七',age:22,sex:'女'})
+            Vue.set(this.list,0,{id:'001',name:'小七',age:22,sex:'女'})
+            // this.$set(this.list,0,{id:'1',name:'小七',age:22,sex:'女'})
+        }
+     },
+    })
+</script> -->
+</html>

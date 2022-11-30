@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>人员列表</h1>
+        <input type="text" v-model="sooname" placeholder="查找">
+        <ul>
+            <li v-for="item in lists" :key="item.id">
+                {{item.name}}-{{item.age}}-{{item.sex}}
+            </li>
+        </ul>
+
+        <!-- <h1>人员列表</h1>
+        <input type="text" v-model="sooname" placeholder="查找">
+        <ul>
+            <li v-for="item in lists" :key="item.id">
+                {{item.name}}-{{item.age}}-{{item.sex}}
+            </li>
+        </ul> -->
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                sooname: '',
+                list: [
+                    { id: 1, name: '张三', age: 18, sex: "男" },
+                    { id: 2, name: '小红', age: 18, sex: "女" },
+                    { id: 3, name: '小梅', age: 18, sex: "女" },
+                    { id: 4, name: '老六', age: 18, sex: "男" }
+                ],
+                // lists: []
+            }
+        },
+        // 计算属性
+            computed: {
+                lists() {
+                    return this.list.filter(i => i.name.indexOf(this.sooname) !== -1)
+                }
+            }
+    })
+</script>
+<!-- <script>
+    new Vue({
+        el: '#root',
+        data() {
+            return {
+                sooname: '',
+                list: [
+                    { id: 1, name: '张三', age: 18, sex: "男" },
+                    { id: 2, name: '小红', age: 18, sex: "女" },
+                    { id: 3, name: '小梅', age: 18, sex: "女" },
+                    { id: 4, name: '老六', age: 18, sex: "男" }
+                ],
+                // lists: []
+            }
+        },
+        // 计算属性
+            computed: {
+                lists() {
+                    return this.list.filter(i => i.name.indexOf(this.sooname) !== -1)
+                }
+            }
+    })
+</script> -->
+
+</html>

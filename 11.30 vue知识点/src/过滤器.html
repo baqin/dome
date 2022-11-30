@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/dayjs.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>显示时间</h2>
+        <div>
+            现在时间是:{{ time | timeFormater}}
+        </div>
+        <div>
+            全局过滤器:{{ time | formate}}</div>
+
+            <!-- <h2>显示时间</h2>
+        <div>
+            现在时间是:{{ time | timeFormater}}
+        </div>
+        <div>
+            全局过滤器:{{ time | formate}}</div> -->
+    </div>
+</body>
+<script>
+    // 全局过滤器
+    Vue.filter('formate', function(value,str ='YYYY年MM月DD日 HH:mm:ss') {
+        return dayjs(value).format(str)
+    })
+    new Vue({
+        el: '#root',
+       data() {
+        return {
+            time:new Date().valueOf(),
+                msg:'暂无数据'    
+        }
+       },    
+    //    局部过滤 
+        filters:{
+            timeFormater(value, str = 'YYYY年MM月DD日 HH:mm:ss') {
+                return dayjs(value).format(str)
+            }
+        }  
+    })
+</script>
+<!-- <script>
+    // 全局过滤器
+    Vue.filter('formate', function(value,str ='YYYY年MM月DD日 HH:mm:ss') {
+        return dayjs(value).format(str)
+    })
+    new Vue({
+        el: '#root',
+       data() {
+        return {
+            time:new Date().valueOf(),
+                msg:'暂无数据'    
+        }
+       },    
+    //    局部过滤 
+        filters:{
+            timeFormater(value, str = 'YYYY年MM月DD日 HH:mm:ss') {
+                return dayjs(value).format(str)
+            }
+        }  
+    })
+</script> -->
+
+</html>
