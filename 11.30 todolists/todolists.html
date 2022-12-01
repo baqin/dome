@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img class="img-wrapper" src="https://www.todolist.cn/img/note.75134fb0.svg" alt="">
+            <div class="title">To-Do List</div>
+        </div>
+        <div class="form-field">
+            <h1 class="titles">~ Today I need to ~</h1>
+            <div class="form-wrapper">
+                <div class="form-input">
+                    <input type="text" placeholder="Add new todo..." class="input"
+                    >
+                    <button type="submit" class="btn" id="btn">
+                        <span class="Submit">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <ul class="todolist">
+
+        </ul>
+        <footer class="footers">
+            <div class="left">
+                <span class="items-left"><span class="Alllength">1</span> items left</span>
+            </div>
+            <div class="right">
+                <div class="all">All</div>
+                <div class="active">Active</div>
+                <div class="completed">Completed</div>
+            </div>
+            <div class="clear">Clear Completed</div>
+        </footer>
+        <div class="bottom">
+            <!-- <input type="checkbox" name="" id=""> -->
+            <svg class="svg-inline--fa fa-clipboard-check fa-w-12 icon" aria-hidden="true" focusable="false"
+                data-prefix="fas" data-icon="clipboard-check" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512" data-v-132cabf7="">
+                <path class="paths" fill="currentColor" d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 
+                 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 
+                 40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm121.2 231.8l-143 
+                 141.8c-4.7 4.7-12.3 4.6-17-.1l-82.6-83.3c-4.7-4.7-4.6-12.3.1-17L99.1 285c4.7-4.7 12.3-4.6 
+                 17 .1l46 46.4 106-105.2c4.7-4.7 12.3-4.6 17 .1l28.2 28.4c4.7 4.8 4.6 12.3-.1 17z"></path>
+            </svg>
+            <span class="msg" style="font-family:Franklin Gothic Book">Congrat, you have no more tasks to do</span>
+        </div>
+    </div>
+</body>
+
+<script>
+    var input = document.querySelector('.input');
+    var todolist = document.querySelector('.todolist');
+    var bottom = document.querySelector('.bottom');
+    var footers = document.querySelector('.footers');
+    var Alllength = document.querySelector('.Alllength');
+    var all = document.querySelector('.all');
+    var active = document.querySelector('.active');
+    var completed = document.querySelector('.completed');
+    var flag = false;
+    //键盘回车事件
+    input.onkeydown = function () {
+        if (event.keyCode == 13) {
+            if (input.value == '') {
+                alert('请输入内容')
+                return false
+            } else {
+                this.flag = true
+                bottom.style.display = 'none'
+                footers.style.display = 'block'
+                footers.style.display = 'flex'
+                var li = document.createElement('li');
+                li.innerHTML = `<div class="lis"><input type="checkbox" class="tabs" /> <p class="vla">${input.value}</p></div> <span class="del">X</span>`;
+                todolist.appendChild(li);
+                Alllength.innerHTML = todolist.children.length;
+                all.style.color = '#fff';
+                all.style.backgroundColor = '#fe7345';
+                input.value = '';
+            }
+        }
+    }
+    //点击事件
+    var Submit = document.querySelector('.Submit');
+    Submit.onclick = function () {
+        if (input.value == '') {
+            //为空弹出提示
+            alert('请输入内容')
+            return false
+        } else {
+            this.flag = true
+            bottom.style.display = 'none'
+            footers.style.display = 'block'
+            footers.style.display = 'flex'
+            var li = document.createElement('li');
+            li.innerHTML = `<div class="lis">
+                            <input type="checkbox" class="tabs"> 
+                            <p class="vla">${input.value}</p>
+                            </div> <span class="del">x</span>`;
+            todolist.appendChild(li);
+            // 计算总数量
+            input.value = '';
+        }
+    }
+    todolist.onclick = function (e) {
+        //删除事件
+        if (e.target.className == 'del') {
+            e.target.parentNode.remove()
+        }
+        // 当数据为零是隐藏
+        if (todolist.children.length == 0) {
+            bottom.style.display = 'block'
+            footers.style.display = 'none'
+        }
+        // 切换状态
+        if (e.target.className == 'tabs') {
+            if (e.target.checked) {
+                e.target.parentNode.style.textDecoration = 'line-through'
+                e.target.parentNode.style.border = "0"
+                // 改变父元素的样式
+                e.target.parentNode.parentNode.style.backgroundColor = '#fe7345'
+                e.target.parentNode.parentNode.style.color = '#fff'
+                // 改变自身复选框的样式
+                e.target.style.backgroundColor = '#fe7345'
+                e.target.style.border = "0"
+            } else {
+                e.target.parentNode.style.textDecoration = 'none'
+                e.target.parentNode.parentNode.style.backgroundColor = ''
+                e.target.parentNode.parentNode.style.color = '#000'
+            }
+        }
+    }
+    //选中删除  只删除选中的
+    var clear = document.querySelector('.clear');
+    clear.onclick = function () {
+        for (var i = 0; i < todolist.children.length; i++) {
+            if (todolist.children[i].children[0].children[0].checked) {
+                todolist.removeChild(todolist.children[i])
+                i--
+            }
+        }
+        if (todolist.children.length == 0) {
+            bottom.style.display = 'block'
+            footers.style.display = 'none'
+        }
+    }
+    //tab切换
+    // 显示全部的
+    all.onclick = function (e) {
+        e.target.style.color = '#fff';
+        e.target.style.backgroundColor = '#fe7345';
+        active.style.color = ''
+        active.style.backgroundColor = ''
+        completed.style.color = ''
+        completed.style.backgroundColor = ''
+        for (var i = 0; i < todolist.children.length; i++) {
+            todolist.children[i].style.display = 'flex'
+        }
+    }
+    // 显示未选中的
+    active.onclick = function (e) {
+        // 把all的样式清空
+        all.style.color = ''
+        all.style.backgroundColor = ''
+        completed.style.color = ''
+        completed.style.backgroundColor = ''
+        e.target.style.color = '#fff'
+        e.target.style.backgroundColor = '#fe7345'
+        for (var i = 0; i < todolist.children.length; i++) {
+            if (todolist.children[i].children[0].children[0].checked) {
+                todolist.children[i].style.display = 'none'
+            } else {
+                todolist.children[i].style.display = 'flex'
+            }
+        }
+    }
+    // 显示选中的   
+    completed.onclick = function (e) {
+        all.style.color = ''
+        all.style.backgroundColor = ''
+        active.style.color = ''
+        active.style.backgroundColor = ''
+        e.target.style.color = '#fff'
+        e.target.style.backgroundColor = '#fe7345'
+        for (var i = 0; i < todolist.children.length; i++) {
+            if (todolist.children[i].children[0].children[0].checked) {
+                todolist.children[i].style.display = 'flex'
+            } else {
+                todolist.children[i].style.display = 'none'
+            }
+        }
+    }
+    //按钮动画
+    document.getElementById('btn').addEventListener('click', function (e) {
+        Shaking(e.target)
+    })
+    function Shaking(el) {
+        const maxDistance = 5 //抖动偏移距离
+        const interval = 30 //抖动快慢 数字越小越快  太小DOM反应不过来 看不出动画
+        const quarterCycle = 2 //一次完整来回抖动的四分之一周期
+        let curDistance = 0
+        let direction = 1
+        const timer = setInterval(function () {
+            if (direction > 0) {
+                curDistance++
+                if (curDistance === maxDistance) {
+                    direction = -1
+                }
+            } else {
+                curDistance--
+                if (curDistance === -maxDistance) {
+                    direction = 1
+                }
+            }
+            el.style.top = curDistance + 'px'
+        }, interval)
+        setTimeout(function () {
+            clearInterval(timer)
+            el.style.top = '0 px'
+        }, maxDistance * interval * quarterCycle)
+    }
+</script>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+
+    li {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 3px;
+        border-radius: 5px;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+
+    .lis {
+        display: flex;
+        align-items: center;
+        padding: 8px 10px 8px 0;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .footers {
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 100px;
+        font-size: 14px;
+        white-space: nowrap;
+        display: none;
+    }
+
+    .right {
+        display: flex;
+    }
+
+    .all,
+    .active,
+    .completed {
+        margin: 0 5px;
+        cursor: pointer;
+        padding: 3px;
+        border-radius: 5px;
+
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:Yanone Kaffeesatz,sans-serif;
+    }
+
+    body {
+        padding: 50px 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(90deg, #ffafbd, #ffc3a0);
+        background-repeat: no-repeat;
+    }
+
+    .container {
+        padding: 30px 40px 20px;
+        text-align: center;
+        width: 440px;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        background: #f2f2f2;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img-wrapper {
+        width: 80px;
+        margin-right: 10px;
+    }
+
+    .title {
+        transform: rotate(3deg);
+        font-size: 16px;
+        padding: 0.25em 0.8em 0.15em;
+        border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+        color: #fff;
+        background: #fe7345;
+        height: 44px;
+        line-height: 35px;
+        white-space: nowrap;
+    }
+
+    .vla {
+        margin-left: 10px;
+    }
+
+    .form-field {
+        margin-top: 25px;
+    }
+
+    .titles {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .form-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-input {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-right: 15px;
+    }
+
+    .input {
+        width: 236.5px;
+        height: 28px;
+        border: 0;
+        border-bottom: 3px dashed #fe7345;
+        padding: 5px 0 3px;
+        font-size: 14px;
+        background: transparent;
+        outline: none;
+    }
+
+    .btn {
+        position: relative;
+        transform: rotate(4deg);
+        border-radius: 6px;
+        transition: transform .25s;
+        outline: none;
+        border: none;
+    }
+
+    .Submit {
+        position: relative;
+        display: block;
+        font-size: 14px;
+        padding: 0.34em 0.84em;
+        border: 2px solid #494a4b;
+        border-radius: inherit;
+        background-color: #fff;
+    }
+
+    .todolist {
+        margin-top: 15px;
+    }
+
+    .btn::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        transform: scaleY(1.05);
+        border: 1px solid #515152;
+        border-radius: inherit;
+        transform-origin: top;
+        background-color: #fe7345;
+        transition: transform .20s;
+        background-image: url(data:image/png;base64,R0lGODlhBAAEAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NUY1OENCRDdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NUY1OENCRTdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1RjU4Q0JCN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1RjU4Q0JDN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABAAAAgYEEpdoeQUAOw==);
+    }
+
+    .bottom-todolist {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 30px;
+        margin-top: 30px;
+        gap: 10px;
+        -webkit-animation: zoom-132cabf7 .45s ease-in-out;
+        animation: zoom-132cabf7 .45s ease-in-out;
+    }
+
+    .bottom {
+        display: flex;
+        color: #b7b7b8;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 10px;
+        -webkit-animation: zoom-132cabf7 .45s ease-in-out;
+        animation: zoom-132cabf7 .45s ease-in-out;
+    }
+
+    .msg{
+        font-size: 15px;
+        padding-top: 5px;
+        color: rgba(73, 74, 75, .45);
+    }
+
+    .del{
+        width: 20px;
+        height: 15px;
+        text-align: center;
+        margin: 10px;
+        color: black;
+    }
+
+    .clear {
+        cursor: pointer;
+    }
+
+    .svg-inline--fa {
+        width: 15px;
+        height: 15px;
+    }
+
+    .paths {
+        background: #b7b7b8;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</html>
