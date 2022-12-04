@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: #fff;
+        background-image: url('./xxxx.gif');
+        /* background: #000; */
+        color: #fff;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .nav h1 {
+        text-align: center;
+        line-height: 20vh;
+    }
+
+    .nav p {
+        position: fixed;
+        right: 0;
+    }
+
+    .nav-right {
+        position: fixed;
+        margin-top: 50px;
+        right: 20%;
+        text-align: right;
+        font-size: 30px !important;
+        color: #fff;
+        margin-bottom: 200px;
+    }
+
+    footer {
+        position: fixed;
+        display: flex;
+        right: 15%;
+        margin-top: 150px;
+    }
+
+    footer button {
+        margin-right: 20px;
+        border-radius: 10px;
+        height: 40px;
+        background: #67c23a;
+        text-align: center;
+        line-height: 25px;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <audio id="myaudio" src="./mp3/曾昭玮 - 她们唱的爱情.mp3" controls="controls" autoplay loop="true" hidden="true">
+    </audio>
+    <div class="nav">
+        <h1>H2110C点名表 </h1>
+        <p class="currentTime" id="clock">时间:</p>
+    </div>
+    <div class="nav-right">
+        <span style="color: aliceblue;font-size: 40px;">天选之人:</span>
+        <span id="name" class="nameStyle"></span>
+    </div>
+    <header>
+        <ul>
+
+        </ul>
+    </header>
+    <footer>
+        <button onclick="oneStudent(event)" id="one">单人点名</button>
+        <button onclick="downStudent(event)" id="two">双人点名</button>
+        <button onclick="bodyOrGrilStudent(0,event)" id="three">男生点名</button>
+        <button onclick="bodyOrGrilStudent(1,event)" id="four">女生点名</button>
+    </footer>
+</body>
+<script>
+    function realSysTime(clock) {
+        let now = new Date();
+        let year = now.getFullYear();
+        let month = now.getMonth() + 1; // 获取到的月份是从 0 开始的
+        let date = now.getDate();
+        let day = now.getDay(); // 获取星期
+        let hour = now.getHours();
+        let minus = now.getMinutes();
+        let sec = now.getSeconds();
+        let arr_week = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+        let week = arr_week[day];
+        let time = year + '年' + month + '月' + date + '日 ' + week + ' ' + formatTime(hour) + ':' + formatTime(minus) + ':' + formatTime(sec); // 时间拼接
+        clock.innerHTML = "当前时间：" + time;
+    }
+ 
+    // 格式化时间
+    function formatTime(time) {
+        time = time < 10 ? '0' + time : time;
+        return time;
+    }
+ 
+    window.onload = function () {
+        window.setInterval("realSysTime(clock)", 1000);
+    },
+    $(function () {
+        var myAuto = document.getElementById('myaudio');
+        myAuto.play();
+    })
+    // 定义学生数据
+    var allList = [
+        {
+            "id": 1,
+            "name": "张世权",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 2,
+            "name": "宋海宇",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 3,
+            "name": "宋增杰",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 4,
+            "name": "王龙翔",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 5,
+            "name": "侯建荞",
+            "sex": 1,
+            "checked": false
+        },
+        {
+            "id": 6,
+            "name": "郝嫚嫚",
+            "sex": 1,
+            "checked": false
+        },
+        {
+            "id": 7,
+            "name": "付高聪",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 8,
+            "name": "张建雨",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 9,
+            "name": "孙旭瑶",
+            "sex": 1,
+            "checked": false
+        },
+        {
+            "id": 10,
+            "name": "张立",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 11,
+            "name": "巴钦",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 12,
+            "name": "吴倩",
+            "sex": 1,
+            "checked": false
+        },
+        {
+            "id": 13,
+            "name": "徐婉颖",
+            "sex": 1,
+            "checked": false
+        },
+        {
+            "id": 14,
+            "name": "刘艺",
+            "sex": 1,
+            "checked": false
+        },
+        {
+            "id": 15,
+            "name": "薛翔元",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 16,
+            "name": "王伟臣",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 17,
+            "name": "程怀博",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 18,
+            "name": "高亚鹏",
+            "sex": 1,
+            "checked": false
+        }, {
+            "id": 19,
+            "name": "韩泽雨",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 20,
+            "name": "李宏恩",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 21,
+            "name": "江萌洋",
+            "sex": 1,
+            "checked": false
+        }, {
+            "id": 22,
+            "name": "孙铭",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 23,
+            "name": "杨志豪",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 24,
+            "name": "张宗耀",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 25,
+            "name": "周璇",
+            "sex": 1,
+            "checked": false
+        }, {
+            "id": 26,
+            "name": "代伊涵",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 27,
+            "name": "章奥博",
+            "sex": 0,
+            "checked": false
+        },
+        {
+            "id": 28,
+            "name": "李妍",
+            "sex": 1,
+            "checked": false
+        },
+        {
+            "id": 29,
+            "name": "邓林柯",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 30,
+            "name": "章涵语",
+            "sex": 0,
+            "checked": false
+        }, {
+            "id": 29,
+            "name": "郑峰",
+            "sex": 0,
+            "checked": false
+        },
+    ];
+    // 定义所有名单
+    var allStudent = allList;
+    // 定义没有选的名单
+    var paddingStudents = [];
+    // 获取ul元素
+    var ul = document.getElementsByTagName('ul')
+    // 获取单人点击按钮
+    var oneButton = document.getElementById('one');
+    //获取双人点击按钮
+    var twoButton = document.getElementById('two');
+    //获取男生点击按钮
+    var bodyButton = document.getElementById('three');
+    //获取女生点击按钮
+    var girlButton = document.getElementById('four');
+    // 获取存放名字的dom
+    var state = document.getElementsByClassName('nav-right')[0];
+    // 获取随机数后的添加名字
+    var saveSpan = document.getElementById('name');
+    saveSpan.style.backgroundImage = randomColor();
+    renderStudent();
+    // 渲染同学,因为进页面需要展示,所以要自调用
+function renderStudent() {
+    ul.innerHTML = "";
+    allStudent.forEach((function (item) {
+        // 创建li标签
+        var li = document.createElement('li');
+        li.className = "liColor";
+        li.style.backgroundImage = randomColor();
+        // 添加li标签展示的内容
+        li.innerHTML = "<span>".concat(item.name, "</span>");
+        // 将li标签动态添加到ul中
+        ul.appendChild(li);
+    }));
+}
+    // 单人点名
+    function oneStudent(event) {
+    clickChecked(event.target.innerText);
+    if (event.target.innerText.includes('停')) {
+        oneButton.innerText = '单人点名 ';
+        var randoms = randomFc(allStudentList);
+        // 根据随机数,获取选中的同学
+        var checkedStudents = allStudentList[randoms];
+        // 将两个人放在一起
+        saveSpan.style.backgroundImage = randomColor();
+        saveSpan.innerText = checkedStudents.name;
+        saveCheckedStudentDom.appendChild(saveSpan);
+    }
+    else {
+        oneButton.innerText = '停止';
+    }
+}
+// 取两个人的随机数
+renderStudent()
+</script>
+
+</html>

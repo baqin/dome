@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点名器</title>
+    <link rel="stylesheet" href="./dome.css">
+    </link>
+</head>
+
+<body>
+  <div class="body_bg">
+    <div class="body_content">
+        <!-- 顶部标签 -->
+        <div>
+            <h1>H2110C点名表 </h1>
+            <p class="currentTime">时间:</p>
+        </div>      
+        <!-- 展示名字 -->
+        <div class="content">
+            <!-- 左边同学渲染 -->
+            <header>
+                <ul>
+                </ul>
+            </header>
+            <!-- 选中人的名字 -->
+            <div class="right">
+                <div class="content_div">
+                    <span style="color: aliceblue;font-size: 40px;">天选之人:</span>
+                    <span id="name" class="nameStyle"></span>
+                </div>
+                <footer>
+                    <button onclick="oneStudent(event)"  id="one">单人点名</button>
+                    <button onclick="downStudent(event)" id="two" >双人点名</button>
+                    <button onclick="bodyOrGrilStudent(0,event)" id="three" >男生点名</button>
+                    <button onclick="bodyOrGrilStudent(1,event)" id="four">女生点名</button>
+                </footer>
+            </div>           
+        </div>
+    </div>
+  </div>
+</body>
+<script src="../dome.js"></script>
+
+</html>
