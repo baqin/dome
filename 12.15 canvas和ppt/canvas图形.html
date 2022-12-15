@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		#c {
+			width: 400px;
+			height: 400px;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<body>
+		<canvas id="c" width="400" height="400"></canvas>
+	</body>
+	<script>
+		// 1、获取canvas对象
+		const cnv = document.getElementById('c');
+		//2、获取canvas上下文环境对象
+		const cxt = cnv.getContext('2d');
+		// 3、绘制图形
+		cxt.moveTo(100, 100); // 起点
+		cxt.lineTo(200, 100); // 终点
+		cxtstroke(); // 将起点和终点连接起来
+		console.log(cnv.width); // 获取 canvas 的宽度，输出: 300
+		console.log(cnv.height); // 获取 canvas 的高度，输出: 150
+	</script>
+</html>
