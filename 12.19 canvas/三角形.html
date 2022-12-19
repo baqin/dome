@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="c" style="border: 1px solid #ccc" width="400" height="400"></canvas>
+	</body>
+	<script>
+		// 2、获取 canvas 对象
+		const cnv = document.getElementById('c');
+		// 3、获取 canvas 上下文环境对象
+		const cxt = cnv.getContext('2d');
+		// 4、绘制图形
+
+		cxt.moveTo(50, 50);
+		cxt.lineTo(200, 50);
+		cxt.lineTo(200, 200);
+		cxt.closePath();
+
+		// cxt.LIneJoin = 'bevel'; //线条的连接样式miter默认bevel，斜面round：圆角
+		// cxt.lineWidth = 20;
+		// cxt.stroke();
+		// 注意点:如果使用 lineTo 闭合图形，是不能很好闭合拐角位的，
+		cxt.lineTo(50,50)//闭合
+cxt.stroke()
+	</script>
+</html>

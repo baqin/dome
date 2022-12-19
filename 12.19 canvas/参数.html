@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<canvas
+			id="c"
+			width="300"
+			height="200"
+			style="border: 1px solid #ccc"
+		></canvas>
+<body>
+    <script>
+        const cnv = document .getElementById('c')
+const cxt = cnv.getContext('2d')
+
+cxt.lineWidth = 20
+cxt.strokeStyle = 'pink '
+
+cxt.moveTo(50,50)
+cxt.lineTo(200,50)
+cxt.setLineDash([10]) // 只传1个参数，实线与空白都是 10px
+cxt.stroke()
+
+cxt.beginPath()
+cxt.moveTo(50,100)
+cxt.lineTo(200,100)
+cxt.setLineDash([10,20]) // 2个参数，此时，实线是 10px，空白 20px
+cxt.stroke()
+
+cxt.beginPath()
+cxt.moveTo(50,150)
+cxt.lineTo(200,150)
+cxt.setLineDash([10,20,5]) // 传3个以上的参数，此例: 1px实线，20px空白，5px实线，10px空白,20px实线，5px空白
+cxt.stroke()
+    </script>
+</body>
+</html>

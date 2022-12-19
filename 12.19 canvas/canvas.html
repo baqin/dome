@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<!-- 创建 canvas 元案 -->
+		<canvas
+			id="c"
+			width="300"
+			height="200"
+			style="border: 1px solid #ccc"
+		></canvas>
+	</body>
+	<script>
+		// 2、获取 canvas 对象
+		const cnv = document.getElementById('c');
+		// 3、获取 canvas 上下文环境对象
+		const cxt = cnv.getContext('2d');
+		// 4、绘制图形
+
+		cxt.moveTo(100, 100); // 起点坐标 (x，y)
+		cxt.lineTo(200, 100); // 终点坐标 (x，y)
+		cxt.stroke(); // 将起点和终点连接起来
+	</script>
+</html>

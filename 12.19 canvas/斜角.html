@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas
+			id="c"
+			width="300"
+			height="200"
+
+		></canvas>
+</body>
+<script>
+    	const cnv = document.getElementById('c');
+		const cxt = cnv.getContext('2d');
+    cxt.moveTo(50,50);
+    cxt.lineTo(200,50);
+    cxt.lineTo(200,200);
+    // cxt.closePath();
+    cxt.lineJoin = 'square';
+    cxt.linewidth = 20;
+    cxt.stroke();
+</script>
+</html>

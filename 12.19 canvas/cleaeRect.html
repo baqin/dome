@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="c" style="border: 1px solid #ccc"></canvas>
+	</body>
+	<script>
+		    const cnv = document.getElementById("c")
+		const cxt = cnv.getContext('2d')
+		cxt.ftllStyle ='pink'// 设置填充旗色
+		cxt.fillRect(50,50,200,200) // 填充矩形
+		cxt.clearRect(60,60,180,90) // 满空矩形
+	</script>
+</html>

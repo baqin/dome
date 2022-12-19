@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="c" width="400" height="400"></canvas>
+	</body>
+	<script>
+		// 2、获取 canvas 对象
+		const cnv = document.getElementById('c');
+		// 3、获取 canvas 上下文环境对象
+		const cxt = cnv.getContext('2d');
+		// 4、绘制图形
+		cxt.moveTo(100, 20);
+		cxt.lineTo(150, 70);
+		cxt.lineTo(100, 120);
+		cxt.lineTo(50,70);
+		cxt.closePath();
+		cxt.stroke();
+	</script>
+</html>

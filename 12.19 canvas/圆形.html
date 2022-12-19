@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="c" style="border: 1px solid #ccc" width="400" height="400"></canvas>
+	</body>
+	<script>
+		// 2、获取 canvas 对象
+		const cnv = document.getElementById('c');
+		// 3、获取 canvas 上下文环境对象
+		const cxt = cnv.getContext('2d');
+		// 4、绘制图形
+
+		cxt.beginPath()
+// cxt.arc(150,150,80,0,360 * Math.PI / 180)//圆
+// cxt.arc(150,150,80,0,180 * Math.PI / 180)//半圆
+cxt.arc(150,150,80,0,180 * Math.PI / 180,true)//逆时针半圆
+cxt.closePath()
+cxt.stroke()
+	</script>
+</html>

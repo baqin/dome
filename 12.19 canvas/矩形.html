@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=w, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas
+    id="c"
+    width="300"
+    height="200"
+    style="border: 1px solid #ccc"
+></canvas>
+</body>
+<script>
+     const cnv = document.getElementById('c');
+		const cxt = cnv.getContext('2d');
+        // 绘制矩形
+// cxt ,moveTo(50,50)
+// cxt.lineTo(200,50)
+// cxt.lineTo(200,120)
+// cxt.lineTo(50,120)
+// cxt.lineTo(50,50) // 需要闭合，又或者使用 cLosePath() 方法进行闭合，推荐使用 cLosePath()
+// cxt.stroke()
+
+
+// strokeRect方法快速闭合
+// cxt.strokeRect(50,50,200,100)
+// cxt.strokeStyle='pink'
+// 填充
+cxt.strokeStyle='red'
+cxt.strokeRect(50,50,200,100)
+cxt.fillStyle='blue'
+cxt.fillRect(50,50,200,100)
+</script>
+</html>

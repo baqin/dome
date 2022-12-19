@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c"width="300" height="300" ></canvas>
+</body>
+<script>
+    const cnv =  document.getElementById('c')
+const cxt = cnv.getContext('2d')
+// 竖向的辅助线(参考线，在画布中间)
+cxt.moveTo(208,0)
+cxt.lineTo(200,400)
+cxt.strokeStyle = "red"
+cxt.stroke()
+cxt.font = '30px Arial'
+// 横坐标开始位对齐
+cxt.textAlign ='start' // 默认值，
+cxt.fillText('雷猴 start',200,40)
+// 横坐标结束位对齐
+cxt.textAlign ='end'// 结束对齐
+cxt.fillText("雷猴 end",200,100)
+// 左对齐
+cxt.textAlign ='left' // 左对齐
+cxt.fillText("雷猴 left",200,160)
+// 右对齐
+cxt.textAlign= "right"// 右对齐
+cxt.fillText("雷猴 right",200,220)
+// 居中对齐
+cxt.textAlign ="center"  // 右对齐
+cxt.fillText("雷猴 center",200,280)
+</script>
+</html>

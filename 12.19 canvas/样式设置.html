@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+        <canvas id="c" style="border: 1px solid #ccc"></canvas>
+    </body>
+	<script>
+		const cnv = document.getElementById('c');
+		const cxt = cnv.getContext('2d');
+		// 绘制直线
+		cxt.moveTo(50, 50);
+		cxt.lineTo(200, 50);
+		// 修改直线的宽度
+        cxt.lineWidth = 30;
+		// 修改直线的颜色
+		cxt.strokeStyle = 'pink';
+		// 修改直线两端样式
+        cxt.lineCap ='round'; // 默认: butt; 圆形: round;放形线帽:square
+		cxt.stroke();
+	</script>
+</html>

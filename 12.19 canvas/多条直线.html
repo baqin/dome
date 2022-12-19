@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas id="c" style="border: 1px solid #ccc"></canvas>
+	</body>
+	<script>
+		const cnv = document.getElementById('c');
+		// **获取canvas上下文环境对象 *
+		const cxt = cnv.getContext('2d');
+		/**绘制图形 */
+		// cxt.moveTo(0，); //起点坐标 (x,y)// cxt.lineTo(400，500);//终点坐标 (x,y)// cxt.stroke(); //将起点和终点连接起来
+		// console.log(cnv.width);console.log(cnv.height);
+		cxt.moveTo(20, 100); //起点坐标 (x,y)
+		cxt.lineTo(300, 100); //终点坐标 (x,y)
+		cxt.stroke(); //将起点和终点连接起来
+		cxt.moveTo(20, 120);
+		cxt.lineTo(330, 120);
+		cxt.stroke();
+	</script>
+</html>
