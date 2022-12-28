@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		new Proxy(data, {
+			// 拦截读取属性值
+			get(target, prop) {
+				return Reflect.get(target, prop);
+			},
+			// 拦截设置属性值或添加新属性
+			set(target, prop, value) {
+				return IReflect.set(target, prop, value);
+			},
+			// 拦截删除属性
+			deleteProperty(target, prop) {
+				return Reflect.deleteProperty(target, prop);
+			},
+		});
+		proxy.name = 'tom';
+	</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 第一种 {}
+  let object1 = {};
+  object1.name = '张三';
+  console.log(object1);
+   //  第二种 使用 new Object() 创建对象
+   var o = new Object();
+  o.name = 'zhangsna';
+  console.log()
+  // 第三种 使用字面量创建对象
+  var person = {
+     name: 'zhang',
+     age: 20,
+  };
+ console.log(person);
+
+  // 前面三种创建对象的方式存在2个问题：
+  // 1.代码冗余；
+  // 2.对象中的方法不能共享，每个对象中的方法都是独立的
+
+   // 第四种 使用工厂模式创建对象
+  // 这种方式是使用一个函数来创建对象，减少重复代码，解决了前面三种方式的代码冗余的问题，但是方法不能共享的问题还是存在
+  // 使用工厂模式创建对象
+  // 定义一个工厂方法
+  function createObject(name) {
+	var o = new Object();
+	o.name = name;
+	o.sayName = function () {
+	alert(this.name);
+  };
+		return o;
+  }
+  var o1 = createObject('zhang');
+  var o2 = createObject('li');
+   console.log(o1);
+  //缺点：调用的还是不同的方法
+  //优点：解决了前面的代码重复的问题
+
+  //第五种 通过构造函数创建对象
+  // 构造函数模式创建对象
+  //  所谓构造函数，也是普通的函数，不过约定俗成，构造函数的名称首字母大写，普通函数的首字母小写。通过new 构造函数来创建对象。
+
+  function Person(name) {
+	this.name = name;
+	this.sayName = function () {
+	alert(this.name);
+    };
+  }
+  var p1 = new Person('zhang');
+  var p2 = new Person('li');
+  console.log(p1);
+</script>
+</html>
