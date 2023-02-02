@@ -1,6 +1,6 @@
 什么是Sass和Less？
 sass和less都属于CSS预处理器。
-css预处理定义了一种新的语言，其基本思想是，用一种专门的编程语言，为css增加了一些编程的特性，将CSS作为目标生成文件，然后开发者就只要使用这种语言进行CSS的编码工作。通俗地说就是“用一种专门的编程语言，进行Web页面样式设计，再通过编译器转化为正常的CSS文件，以供项目使用”。
+css预处理定义了一种新的语言，其基本思想是，用一种专门的编程语言，为css增加了一些编程的特性，将CSS作为目标生成文件，然后开发者就只要使用这种语言进行CSS的编码工作。通俗地说就是“用一种专门的编程语言，进行Web页面样式设计，再通过编译器转化为正常的CSS文件,以供项目使用”。
 为什么使用CSS预处理器？　　
 　　CSS只是一个标记语言，不是编程语言，因此不可以自定义变量，不可以引用等等。
 css有具体以下几个缺点：
@@ -33,14 +33,9 @@ Less和Sass在语法上有些共性，比如下面这些：
 7、作用域——局部修改样式；
 8、JavaScript 赋值——在CSS中使用JavaScript表达式赋值。
 前端路由 vue-router 有两种模式 ,hash模式和history区别
-
 一、hash 就是指 url 尾巴后的 # 号以及后面的字符，history没有底带#，外观上比hash 模式好看些
-
 二、原理的区别（原理）
-
 三、hash 能兼容到IE8， history 只能兼容到 IE10
-
-四、由于 hash 值变化不会导致浏览器向服务器发出请求，而且 hash 改变会触发 hashchange 事件（hashchange只能改变 # 后面的url片段）；虽然hash路径出现在URL中，但是不会出现在HTTP请求中，对后端完全没有影响，因此改变hash值不会重新加载页面，基本都是使用 hash 来实现前端路由的。
-
+四、由于 hash 值变化不会导致浏览器向服务器发出请求，而且 hash 改变会触发 hashchange 事件（hashchange只能改变 # 后面的url片段）；虽然hash路径出现在URL中，但是不会出现在HTTP请求中，对后端完全没有影响,因此改变hash值不会重新加载页面，基本都是使用 hash 来实现前端路由的。
 hash原理：hash通过监听浏览器的onhashchange()事件变化，查找对应的路由规则
 history原理： 利用H5的 history中新增的两个API pushState() 和 replaceState() 和一个事件onpopstate监听URL变化
